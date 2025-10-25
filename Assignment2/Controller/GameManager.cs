@@ -1,9 +1,13 @@
 ﻿using System;
 
-public class Class1
+public class GaemeManager
 {
+    // Player with black disks starts first
+    private GameBoard board;
     public enum DiskColor { None, Black, White }
-    public Class1()
+    public GameManager()
 	{
-	}
+       
+        
+    }
 }
