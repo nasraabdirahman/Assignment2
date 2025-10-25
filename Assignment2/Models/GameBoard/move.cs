@@ -7,8 +7,8 @@ public class Move
 	public Player Player {get;}
     public Move(int row, int col, Player player)
 	{
-		Row = row;
-		Col = col;
-		Player = curPlayer;
+		this.row = row;
+		this.col = col;
+		this.Player = player;
     }
 }
