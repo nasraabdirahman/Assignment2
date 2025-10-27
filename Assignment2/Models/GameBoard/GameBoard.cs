@@ -147,10 +147,35 @@ public class GameBoard
         }
 		return false; // if we finish the loop without returning then return false
     }
-    public void MakeMove() // updates board
+    public void MakeMove(Move move) // updates board
 	{
+		DiskColor diskColor = move.Player.DiskColor
 
-	}
+        Position currentpos = new Position(move.row, move.col, board[move.row, move.col]);
+        int[] dir = { -1, 0, 1 };
+		foreach (int drow in dir)
+		{
+			foreach (int dcol in dir)
+			{
+                if (drow == 0 && dcol == 0) // center check
+                    continue;
+
+                List<Position> curdir = GetLine(currentpos, drow, dcol);
+				if (ProcessLine(curdir, move.Player))
+				{           // we flip the disks
+					foreach(Position pos in curdir) // go through the line
+                    {
+						if (board[pos.Row, pos.Col] == diskColor) // already know the line is valid
+						{
+							break; // stop when you hit your own disk
+						}
+						board[pos.Row, pos.Col] = diskColor; // change the color
+					}
+                }
+            }
+        }
+		board[move.row, move.col] = diskColor; // place the new disk
+    }
     public int[] GetScore() // returns score as two ints
 	{
 		int blackScore = 0;
