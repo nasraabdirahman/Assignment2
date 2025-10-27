@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment2.Player.Factory
+namespace Assignment2.FactoryT
 {
-    class Computer
+    internal class Computer : Factory
     {
+            public Player.Player create(string name);
+
     }
 }

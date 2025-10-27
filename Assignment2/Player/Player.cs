@@ -1,4 +1,5 @@
 ﻿using System;
+using Assignment2.FactoryT
 
 public abstract class Player
 {
@@ -8,7 +9,14 @@ public abstract class Player
     internal protected TaskCompletionSource<Move>? MoveSource;
     public DiskColor diskColor { get; set; }
 
+    public string Name { get; set; }
+
     public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
 
 
+    public Player(string name, DiskColor disk)
+    {
+        this.Name = name; 
+        this.diskColor = disk;
+    }
 }
