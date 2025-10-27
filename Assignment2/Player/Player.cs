@@ -9,4 +9,6 @@ public abstract class Player
     public DiskColor diskColor { get; set; }
 
     public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
+
+
 }

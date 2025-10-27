@@ -16,4 +16,6 @@ public class ComputerPlayer : Player
 
         return move;
     }
+
+    public Move
 }
