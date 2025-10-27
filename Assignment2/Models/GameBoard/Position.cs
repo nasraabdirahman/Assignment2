@@ -7,8 +7,8 @@ public class Position
     public Diskcolor color{ get; }
     public Position(int row, int col, Diskcolor color)
     {
-        Row = row;
-        Col = col;
-        Color = color;
+        this.row = row;
+        this.col = col;
+        this.color = color;
     }
 }
