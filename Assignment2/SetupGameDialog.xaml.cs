@@ -19,10 +19,32 @@ namespace Assignment2
     /// </summary>
     public partial class Window1 : Window
     {
+        internal string nameOne;
+        internal string nameTwo;
+        internal string playerTypeOne;
+        internal string playerTypeTwo;
         public Window1()
         {
             InitializeComponent();
 
+        }
+        internal void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioButton = (RadioButton)sender;
+            if (radioButton.IsChecked == true)
+            {
+                if(radioButton.GroupName.ToString() == "playerTypeOne")
+                {
+                    playerTypeOne = radioButton.Content.ToString();
+                }
+                else
+                {
+                    playerTypeTwo = radioButton.Content.ToString();
+                }
+            }
+            else
+            {
+            }
         }
     }
 }

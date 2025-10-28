@@ -68,35 +68,11 @@
                      HorizontalAlignment="Right" 
                      Grid.Column="3" Grid.Row="2" 
                      Width="60"/>
-            <TextBlock Foreground="White"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Margin="10,0"
-                Text="Computer Player" 
-                Grid.Column="3"
-                Grid.Row="3"/>
-            <TextBlock Foreground="White"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Margin="10,0"
-                Text="Computer Player" 
-                Grid.Column="1"
-                Grid.Row="3"/>
-            <TextBlock Foreground="White"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Margin="10,0"
-                Text="Human Player" 
-                Grid.Column="3"
-                Grid.Row="4"/>
-            <TextBlock Foreground="White"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Margin="10,0"
-                Text="Human Player" 
-                Grid.Column="1"
-                Grid.Row="4"/>
-            
+            <RadioButton Content="Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeOne" Grid.Column="1" Grid.Row="3" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeOne" Grid.Column="1" Grid.Row="4" Checked="RadioButton_Checked"/>
+
+            <RadioButton Content="Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="3" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="4" Checked="RadioButton_Checked"/>
         </Grid>
     </Border>
 </Window>
