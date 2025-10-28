@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class GaemeManager
+public class GameManager
 {
     // Player with black disks starts first
     private GameBoard board;
