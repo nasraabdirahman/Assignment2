@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment2.Player;
 
-namespace Assignment2.FactoryT
+namespace Assignment2.PlayerT.FactoryT
 {
-    internal interface Factory
+    public interface Factory
     {
         public Player.Player create(string name);
     }

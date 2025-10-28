@@ -1,13 +1,18 @@
 ﻿using System;
 
-public class GaemeManager
+
+namespace Assignment2.Controller
 {
-    // Player with black disks starts first
-    private GameBoard board;
-    public enum DiskColor { None, Black, White }
-    public GameManager()
-	{
-       
-        
+    public class GaemeManager
+    {
+        // Player with black disks starts first
+        private GameBoard board;
+        public enum DiskColor { None, Black, White }
+        public GameManager()
+        {
+
+
+        }
     }
 }
+

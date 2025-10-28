@@ -1,22 +1,27 @@
 ﻿using System;
-using Assignment2.FactoryT
 
-public abstract class Player
+
+namespace Assignment2.Player
 {
-    public enum DiskColor { White, Black }
-
-    // manually control the tasks that is done
-    internal protected TaskCompletionSource<Move>? MoveSource;
-    public DiskColor diskColor { get; set; }
-
-    public string Name { get; set; }
-
-    public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
-
-
-    public Player(string name, DiskColor disk)
+    public abstract class Player
     {
-        this.Name = name; 
-        this.diskColor = disk;
+        public enum DiskColor { White, Black }
+
+        // manually control the tasks that is done
+        internal protected TaskCompletionSource<Move>? MoveSource;
+        public DiskColor diskColor { get; set; }
+
+        public string Name { get; set; }
+
+        public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
+
+
+        public Player(string name, DiskColor disk)
+        {
+            this.Name = name;
+            this.diskColor = disk;
+        }
     }
 }
+
+

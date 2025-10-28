@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment2.Player.MinMax
+namespace Assignment2.PlayerT.MinMax
 {
-    class Terminal
+    internal class Actions
     {
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Assignment2.Controller;
 
 public class GameBoard
 {
@@ -93,7 +94,7 @@ public class GameBoard
                 {
                     continue;
                 }
-				if(ProcessLine(GetLine(position,drow,dcol),player)
+				if (ProcessLine(GetLine(position, drow, dcol), player)
 				{
 					return true; // valid move found
                 }
@@ -192,5 +193,21 @@ public class GameBoard
 			}
         }
 		return new int[] {blackScore, whiteScore}; // returns scores as [blackScore, whiteScore]
-    } 
+    }
+
+
+	// clones the board so that the Ai can make test on it
+	public GameBoard Clone()
+	{
+		GameBoard copy = new GameBoard();
+		for(int row = 0; row <  8; row++)
+		{
+			for(int col = 0; col < 8; col++)
+			{
+				copy.board[row, col] = this.board[row,col];
+			}
+		}
+
+		return copy;
+	}
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Assignment2.Player;
 public class Move
 {
 	public int row { get;}

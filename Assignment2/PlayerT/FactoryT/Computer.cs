@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment2.Player;
+using Assignment2.PlayerT.FactoryT;
 
-namespace Assignment2.FactoryT
+namespace Assignment2.PlayerT.FactoryT
 {
-    internal class Computer : Factory
+    public class Computer : Factory
     {
-            public Player.Player create(string name);
+        public Player.Player create(string name)
+        {
+
+            return new ComputerPlayer(name, Player.DiskColor.White);
+        }
 
     }
 }

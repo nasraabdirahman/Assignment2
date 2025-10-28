@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Assignment2.Player;
+using Assignment2.PlayerT.FactoryT;
+using System;
 
-internal class Player2 : PlayerFactory
+internal class Player2 : Factory
 {
 
     public Player create(string name)
     {
-        return new HumanPlayer(name, Player.DiskColor.White);
+        HumanPlayer player2 = new HumanPlayer(name, Player.DiskColor.White);
+        return player2;
     }
 }
