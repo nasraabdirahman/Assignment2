@@ -2,16 +2,9 @@
 
 public class HumanPlayer : Player
 {
-
-
-    public string Name { get; set; }
-
-    public HumanPlayer(string name, DiskColor disk)
+    public HumanPlayer(string name, DiskColor disk) : base(name, disk)
     {
-        this.Name = name;
-        this.diskColor = disk;
     }
-
 
     public override async Task<Move> RequestMove(GameBoard board, List<Move> validMoves)
     {

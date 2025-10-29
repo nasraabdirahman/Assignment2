@@ -1,9 +1,9 @@
 ﻿using System;
 
-internal class Player2 : Factory
+internal class Player2 : PlayerFactory
 {
 
-    public HumanPlayer create(string name)
+    public Player create(string name)
     {
         return new HumanPlayer(name, Player.DiskColor.White);
     }

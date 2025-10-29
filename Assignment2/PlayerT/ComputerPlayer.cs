@@ -3,9 +3,8 @@
 public class ComputerPlayer : Player
 {
 
-    public ComputerPlayer(DiskColor disk)
+    public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
     {
-        this.diskColor = disk;
     }
 
     //not fully implimented
@@ -16,4 +15,6 @@ public class ComputerPlayer : Player
 
         return move;
     }
+
+    public Move
 }
