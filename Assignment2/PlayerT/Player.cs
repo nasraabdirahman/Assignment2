@@ -16,9 +16,8 @@ namespace Assignment2.Player
         public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
 
 
-        public Player(string name, DiskColor disk)
+        public Player( DiskColor disk)
         {
-            this.Name = name;
             this.diskColor = disk;
         }
     }

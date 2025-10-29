@@ -2,7 +2,7 @@
 using Assignment2.Player;
 public class HumanPlayer : Player
 {
-    public HumanPlayer(string name, DiskColor disk) : base(name, disk)
+    public HumanPlayer( DiskColor disk) : base( disk)
     {
     }
 

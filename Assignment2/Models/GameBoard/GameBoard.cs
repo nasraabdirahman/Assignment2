@@ -1,5 +1,6 @@
 ﻿using System;
 using Assignment2.Controller;
+using Assignment2.Player;
 
 public class GameBoard
 {

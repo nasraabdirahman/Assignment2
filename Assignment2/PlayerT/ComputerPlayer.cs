@@ -4,7 +4,7 @@ using Assignment2.Player;
 public class ComputerPlayer : Player
 {
 
-    public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
+    public ComputerPlayer( DiskColor disk) : base(disk)
     {
     }
 
@@ -36,11 +36,6 @@ public class ComputerPlayer : Player
     }
 
     //checks if the game is over
-    internal static bool State()
-    {
-        if ()
-        {
-            return true;
-        }
-        }
+
+
 }
