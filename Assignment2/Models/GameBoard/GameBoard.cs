@@ -5,6 +5,7 @@ using static Assignment2.Controller.GaemeManager;
 
 public class GameBoard
 {
+	
     private const int BoardSize = 8;
     public DiskColor[,] board { get; private set; } = new DiskColor[BoardSize,BoardSize];
     public GameBoard()
@@ -17,7 +18,7 @@ public class GameBoard
         {
             for (int col = 0; col < BoardSize; col++)
             {
-                board[row, col] = DiskColor.Empty;
+                board[row, col] = DiskColor.none;
             }
         }
         board[3,3] = DiskColor.White;
