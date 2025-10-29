@@ -5,7 +5,7 @@ namespace Assignment2.Player
 {
     public abstract class Player
     {
-        public enum DiskColor { White, Black }
+        public enum DiskColor { None, White, Black }
 
         // manually control the tasks that is done
         internal protected TaskCompletionSource<Move>? MoveSource;
@@ -16,9 +16,10 @@ namespace Assignment2.Player
         public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
 
 
-        public Player( DiskColor disk)
+        public Player( string name,DiskColor disk)
         {
             this.diskColor = disk;
+            this.Name = name;
         }
     }
 }

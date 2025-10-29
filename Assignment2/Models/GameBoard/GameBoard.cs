@@ -1,6 +1,7 @@
 ﻿using System;
 using Assignment2.Controller;
 using Assignment2.Player;
+using static Assignment2.Controller.GaemeManager;
 
 public class GameBoard
 {

@@ -4,7 +4,7 @@ using Assignment2.Player;
 public class ComputerPlayer : Player
 {
 
-    public ComputerPlayer( DiskColor disk) : base(disk)
+    public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
     {
     }
 
