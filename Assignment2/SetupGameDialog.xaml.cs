@@ -17,15 +17,15 @@ namespace Assignment2
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class SetupGameDialog : Window
     {
         internal string nameOne;
         internal string nameTwo;
         internal string playerTypeOne;
         internal string playerTypeTwo;
-        public Window1()
+        public SetupGameDialog()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
         }
         internal void RadioButton_Checked(object sender, RoutedEventArgs e)
