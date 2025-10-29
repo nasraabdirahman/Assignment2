@@ -68,6 +68,20 @@ public class ComputerPlayer : Player
             {
                 currentPlayer = new HumanPlayer("opponent", DiskColor.White);
             }
+            // get all valid moves from this player
+            var validMoves = board.GetValidMoves(currentPlayer);
+
+            // if no moves, Pass th turn to the other Player
+            if(validMoves.Count == 0)
+            {
+                return Minmax(board, depth - 1, !maximazingPlayer, alpha, beta);
+            }
+
+            //maximizing means that the Ai is trying to get the max score 
+            if(maximazingPlayer)
+            {
+                int maxValue = int.MinValue;
+            }
                 
         }
     }
