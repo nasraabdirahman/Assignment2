@@ -18,7 +18,7 @@ public class GameBoard
         {
             for (int col = 0; col < BoardSize; col++)
             {
-                board[row, col] = DiskColor.none;
+                board[row, col] = DiskColor.Empty;
             }
         }
         board[3,3] = DiskColor.White;
@@ -213,4 +213,45 @@ public class GameBoard
 
 		return copy;
 	}
+
+    //checks terminal state
+    public bool isGameOver()
+    {
+        //checks if the board is full
+        bool isFull = true;
+        for (int row = 0; row < 8; row++)
+        {
+            for (int col = 0; col < 8; col++)
+            {
+                if (board[row, col] == DiskColor.Empty)
+                {
+                    isFull = false;
+                    break;
+                }
+
+            }
+            if (!isFull)
+            {
+                break;
+            }
+        }
+        if (isFull)
+        {
+            return true; // no empty spaces left
+        }
+
+        //checking if either player can move
+        var blackPlayer = new HumanPlayer("temp", DiskColor.Black);
+        var whitePlayer = new HumanPlayer("temp", DiskColor.White);
+
+        bool blackCanMove = GetValidMoves(blackPlayer).Count > 0;
+		bool whiteCanMove = GetValidMoves(whitePlayer).Count > 0;
+
+		if(!blackCanMove && !whiteCanMove)
+		{
+			return true;
+		}
+
+		return false;
+    }
 }

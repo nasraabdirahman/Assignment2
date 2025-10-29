@@ -1,9 +1,19 @@
 ﻿using System;
+using Assignment2.Controller;
 using Assignment2.Player;
 public class HumanPlayer : Player
 {
+    private string v;
+    private GameManager.DiskColor black;
+
     public HumanPlayer(string name, DiskColor disk) : base( name,disk)
     {
+    }
+
+    public HumanPlayer(string v, GameManager.DiskColor black)
+    {
+        this.v = v;
+        this.black = black;
     }
 
     public override async Task<Move> RequestMove(GameBoard board, List<Move> validMoves)

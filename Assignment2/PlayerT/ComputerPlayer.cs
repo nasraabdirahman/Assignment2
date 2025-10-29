@@ -35,7 +35,42 @@ public class ComputerPlayer : Player
         return 0;
     }
 
-    //checks if the game is over
+    private int Minmax(GameBoard board, int depth, bool maximazingPlayer, int alpha, int beta)
+    {
+        
+
+        if (board.isGameOver() || depth == 0)
+        {
+
+            int[] score = board.GetScore();
+            // Black wins
+            if (score[0] > score[1])
+            {
+                return Max();
+            }
+            // White wins
+            if (score[0] < score[1])
+            {
+                return Min();
+            }
+            else
+            {
+                return Draw();
+            }
+            // tells the player whos turn it is an
+            Player currentPlayer;
+
+            if(maximazingPlayer)
+            {
+                currentPlayer = new HumanPlayer("ai", DiskColor.Black);
+            }
+            else
+            {
+                currentPlayer = new HumanPlayer("opponent", DiskColor.White);
+            }
+                
+        }
+    }
 
 
 }

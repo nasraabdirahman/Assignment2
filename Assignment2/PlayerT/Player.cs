@@ -5,7 +5,7 @@ namespace Assignment2.Player
 {
     public abstract class Player
     {
-        public enum DiskColor { None, White, Black }
+        public enum DiskColor { Empty, White, Black }
 
         // manually control the tasks that is done
         internal protected TaskCompletionSource<Move>? MoveSource;
