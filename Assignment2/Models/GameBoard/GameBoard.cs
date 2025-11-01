@@ -17,7 +17,7 @@ public class GameBoard
         {
             for (int col = 0; col < BoardSize; col++)
             {
-                board[row, col] = DiskColor.none;
+                board[row, col] = DiskColor.Empty;
             }
         }
         board[3,3] = DiskColor.White;
@@ -96,19 +96,20 @@ public class GameBoard
                 {
                     continue;
                 }
-				if (ProcessLine(GetLine(position, drow, dcol), player)
+				if (ProcessLine(GetLine(position, drow, dcol), player))
 				{
 					return true; // valid move found
                 }
 
             }
         }
+		return false; // no valid moves found
     }
     private List<Position> GetLine(Position start, int dRow, int dCol)
     {
         List<Position> line = new List<Position>();
-        int row = start.Row + dRow;
-        int col = start.Col + dCol;
+        int row = start.row + dRow;
+        int col = start.col + dCol;
 
         while (row >= 0 && row < 8 && col >= 0 && col < 8)
         {
@@ -137,7 +138,7 @@ public class GameBoard
 			}
 			else if(line[index].color == currcolor) // if we hit our color
             {										// check previous 
-				if (index > 0 && line[index - 1].Color == opColor) // if we have atleast one op then valid
+				if (index > 0 && line[index - 1].Color == opcolor) // if we have atleast one op then valid
 				{
 					return true;
 				}
@@ -168,11 +169,11 @@ public class GameBoard
 				{           // we flip the disks
 					foreach(Position pos in curdir) // go through the line
                     {
-						if (board[pos.Row, pos.Col] == diskColor) // already know the line is valid
+						if (board[pos.row, pos.col] == diskColor) // already know the line is valid
 						{
 							break; // stop when you hit your own disk
 						}
-						board[pos.Row, pos.Col] = diskColor; // change the color
+						board[pos.row, pos.col] = diskColor; // change the color
 					}
                 }
             }
