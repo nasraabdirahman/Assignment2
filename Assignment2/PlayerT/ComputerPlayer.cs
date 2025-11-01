@@ -4,7 +4,7 @@ using Assignment2.Player;
 public class ComputerPlayer : Player
 {
 
-    public ComputerPlayer( DiskColor disk) : base(disk)
+    public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
     {
     }
 
@@ -35,7 +35,56 @@ public class ComputerPlayer : Player
         return 0;
     }
 
-    //checks if the game is over
+    private int Minmax(GameBoard board, int depth, bool maximazingPlayer, int alpha, int beta)
+    {
+        
+
+        if (board.isGameOver() || depth == 0)
+        {
+
+            int[] score = board.GetScore();
+            // Black wins
+            if (score[0] > score[1])
+            {
+                return Max();
+            }
+            // White wins
+            if (score[0] < score[1])
+            {
+                return Min();
+            }
+            else
+            {
+                return Draw();
+            }
+            // tells the player whos turn it is an
+            Player currentPlayer;
+
+            if(maximazingPlayer)
+            {
+                currentPlayer = new HumanPlayer("ai", DiskColor.Black);
+            }
+            else
+            {
+                currentPlayer = new HumanPlayer("opponent", DiskColor.White);
+            }
+            // get all valid moves from this player
+            var validMoves = board.GetValidMoves(currentPlayer);
+
+            // if no moves, Pass th turn to the other Player
+            if(validMoves.Count == 0)
+            {
+                return Minmax(board, depth - 1, !maximazingPlayer, alpha, beta);
+            }
+
+            //maximizing means that the Ai is trying to get the max score 
+            if(maximazingPlayer)
+            {
+                int maxValue = int.MinValue;
+            }
+                
+        }
+    }
 
 
 }

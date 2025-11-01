@@ -1,6 +1,7 @@
 ﻿using System;
 using Assignment2.Controller;
 using Assignment2.Player;
+using static Assignment2.Controller.GameManager;
 
 public class GameBoard
 {
@@ -213,4 +214,45 @@ public class GameBoard
 
 		return copy;
 	}
+
+    //checks terminal state
+    public bool isGameOver()
+    {
+        //checks if the board is full
+        bool isFull = true;
+        for (int row = 0; row < 8; row++)
+        {
+            for (int col = 0; col < 8; col++)
+            {
+                if (board[row, col] == DiskColor.Empty)
+                {
+                    isFull = false;
+                    break;
+                }
+
+            }
+            if (!isFull)
+            {
+                break;
+            }
+        }
+        if (isFull)
+        {
+            return true; // no empty spaces left
+        }
+
+        //checking if either player can move
+        var blackPlayer = new HumanPlayer("temp", DiskColor.Black);
+        var whitePlayer = new HumanPlayer("temp", DiskColor.White);
+
+        bool blackCanMove = GetValidMoves(blackPlayer).Count > 0;
+		bool whiteCanMove = GetValidMoves(whitePlayer).Count > 0;
+
+		if(!blackCanMove && !whiteCanMove)
+		{
+			return true;
+		}
+
+		return false;
+    }
 }
