@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Assignment2
+namespace Assignment2.View
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
@@ -25,7 +25,7 @@ namespace Assignment2
         internal string playerTypeTwo;
         public SetupGameDialog()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
         }
         internal void RadioButton_Checked(object sender, RoutedEventArgs e)
