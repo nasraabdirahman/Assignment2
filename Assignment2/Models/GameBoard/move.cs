@@ -1,14 +1,18 @@
 ﻿using System;
 using Assignment2.Player;
-public class Move
+
+namespace Assignment2.Models.GameBoard
 {
-	public int row { get;}
-    public int col { get;}
-	public Player Player {get;}
-    public Move(int row, int col, Player player)
+	public class Move
 	{
-		this.row = row;
-		this.col = col;
-		this.Player = player;
-    }
+		public int row { get; }
+		public int col { get; }
+		public DiskColor Player { get; }
+		public Move(int row, int col, DiskColor player)
+		{
+			this.row = row;
+			this.col = col;
+			this.Player = player;
+		}
+	}
 }

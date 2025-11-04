@@ -1,14 +1,16 @@
 ﻿using System;
 using Assignment2.Player;
-public class Position
+
+namespace Assignment2.Models.GameBoard
 {
-    public int row { get; }
-    public int col { get; }
-    public Player.DiskColor color{ get; }
-    public Position(int row, int col, Diskcolor color)
+    public class Position
     {
-        this.row = row;
-        this.col = col;
-        this.color = color;
+        public int row { get; }
+        public int col { get; }
+        public Position(int row, int col)
+        {
+            this.row = row;
+            this.col = col;
+        }
     }
 }

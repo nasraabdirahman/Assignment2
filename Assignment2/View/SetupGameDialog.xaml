@@ -1,4 +1,4 @@
-﻿<Window x:Class="Assignment2.Window1"
+﻿<Window x:Class="Assignment2.View.SetupGameDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,24 +24,27 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <TextBlock Foreground="LimeGreen"
-                Text="Select Player" 
+                FontFamily="Baskerville Old Face"
+                Text="Select Player:" 
                 Grid.ColumnSpan="5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.Row="0"
-                FontSize="26" />
+                FontSize="34" />
             <TextBlock Foreground="LimeGreen"
                 HorizontalAlignment="Center"
+                FontFamily="Baskerville Old Face"
                 Text="Player 1" 
                 Grid.Column="1"
                 Grid.Row="1"
-                FontSize="26"/>
+                FontSize="30"/>
             <TextBlock Foreground="LimeGreen"
                 HorizontalAlignment="Center"
+                FontFamily="Baskerville Old Face"
                 Text="Player 2" 
                 Grid.Column="3"
                 Grid.Row="1"
-                FontSize="26"/>
+                FontSize="30"/>
             <TextBlock Foreground="White"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
