@@ -42,9 +42,6 @@ namespace Assignment2.View
                     playerTypeTwo = radioButton.Content.ToString();
                 }
             }
-            else
-            {
-            }
         }
     }
 }
