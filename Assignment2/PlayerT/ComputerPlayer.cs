@@ -3,22 +3,31 @@ using Assignment2.Player;
 
 public class ComputerPlayer : Player
 {
-
+    private static readonly Random Rand = new Random();
     public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
     {
+        this.diskColor = disk;
     }
 
-    //not fully implimented
     public override async Task<Move> RequestMove(GameBoard board, List<Move> validMoves)
     {
-        MoveSource = new TaskCompletionSource<Move>();
-        Move move = await MoveSource.Task;
+        await Task.Delay(1000); // 1 second delay to simulate thinking
 
+        // if the move isnt valid reeturn null;
+
+        if(validMoves == null || validMoves.Count == 0)
+        {
+            return null;
+        }
+        // chooses random move
+        int index = Rand.Next(validMoves.Count);
+        Move move = validMoves[index];
         return move;
     }
+}
 
 
-    // this is to be able to assign a value when the game is over. -1 = white wins. 1 = black wins. 0 = a draw
+/*    // this is to be able to assign a value when the game is over. -1 = white wins. 1 = black wins. 0 = a draw
 
     internal int Max()
     {
@@ -87,4 +96,4 @@ public class ComputerPlayer : Player
     }
 
 
-}
+}/*
