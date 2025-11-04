@@ -26,10 +26,10 @@ namespace Assignment2.Models.GameBoard {
 			board[4, 3] = DiskColor.Black;
 			board[4, 4] = DiskColor.White;
 		}
-		public List<Move> GetValidMoves(Player currentPlayer)
+		public List<Move> GetValidMoves(DiskColor currentPlayer)
 		{
 			List<Move> validMoves = new List<Move>(); // will be returned
-			DiskColor curcolor = currentPlayer.DiskColor; // current player's color
+			DiskColor curcolor = currentPlayer; // current player's color
 			DiskColor opcolor = (curcolor == DiskColor.Black) ? DiskColor.White : DiskColor.Black; // opponent's color
 			List<Position> candidatemoves = new List<Position>(); // all potential moves 
 			for (int row = 0; row < BoardSize; row++) // used to find all potential moves
@@ -38,8 +38,13 @@ namespace Assignment2.Models.GameBoard {
 				{
 					if (board[row, col] == opcolor) // this optimizes the search for valid moves slightly
 					{
-						Position tempcurrent = new Position(row, col, board[row, col]); // add the candidate moves
-						candidatemoves.Add(Touches(tempcurrent));
+						Position tempcurrent = new Position(row, col); // add the candidate moves
+						//candidatemoves.Add(Touches(tempcurrent));
+						List<Position> candidmoves = Touches(tempcurrent);
+						foreach (var move in candidmoves)
+						{
+							candidatemoves.Add(move);
+						}
 					}
 				}
 			}
@@ -75,13 +80,13 @@ namespace Assignment2.Models.GameBoard {
 					// check for out of bounds
 					if (newRow >= 0 && newRow < BoardSize && newCol >= 0 && newCol < BoardSize)
 					{
-						surrounding.Add(new Position(newRow, newCol, board[newRow, newCol])); // add to return list
+						surrounding.Add(new Position(newRow, newCol)); // add to return list
 					}
 				}
 			}
 			return surrounding;
 		}
-		private bool IsMoveValid(Position position, Player player) // move through all directions until one is valid else return false
+		private bool IsMoveValid(Position position, DiskColor player) // move through all directions until one is valid else return false
 		{
 			if (board[position.row, position.col] != DiskColor.Empty) // if not empty return false
 			{
@@ -114,16 +119,16 @@ namespace Assignment2.Models.GameBoard {
 
 			while (row >= 0 && row < 8 && col >= 0 && col < 8)
 			{
-				line.Add(new Position(row, col, board[row, col]));
+				line.Add(new Position(row, col));
 				row += dRow;
 				col += dCol;
 			}
 
 			return line;
 		}
-		private bool ProcessLine(List<Position> line, Player player)
+		private bool ProcessLine(List<Position> line, DiskColor player)
 		{
-			DiskColor currcolor = player.DiskColor;
+			DiskColor currcolor = player;
 			DiskColor opcolor = (currcolor == DiskColor.Black) ? DiskColor.White : DiskColor.Black;
 			if (line.Count < 2) // quick check for too short distances
 			{
@@ -133,13 +138,13 @@ namespace Assignment2.Models.GameBoard {
 			int index = 0;
 			while (index < line.Count) // go through line 
 			{
-				if (line[index].color == DiskColor.Empty) // empty means invalid
+				if (board[line[index].col,line[index].row] == DiskColor.Empty) // empty means invalid
 				{
 					return false;
 				}
-				else if (line[index].color == currcolor) // if we hit our color
+				else if (board[line[index].col, line[index].row] == currcolor) // if we hit our color
 				{                                       // check previous 
-					if (index > 0 && line[index - 1].color == opcolor) // if we have atleast one op then valid
+					if (index > 0 && board[line[index-1].col, line[index-1].row] == opcolor) // if we have atleast one op then valid
 					{
 						return true;
 					}
@@ -154,9 +159,9 @@ namespace Assignment2.Models.GameBoard {
 		}
 		public void MakeMove(Move move) // updates board
 		{
-			DiskColor diskColor = move.Player.DiskColor;
+			DiskColor diskColor = move.Player;
 
-			Position currentpos = new Position(move.row, move.col, board[move.row, move.col]);
+			Position currentpos = new Position(move.row, move.col);
 			int[] dir = { -1, 0, 1 };
 			foreach (int drow in dir)
 			{
@@ -216,7 +221,7 @@ namespace Assignment2.Models.GameBoard {
 		}
 
 		//checks terminal state
-		public bool isGameOver()
+		/*public bool isGameOver()
 		{
 			//checks if the board is full
 			bool isFull = true;
@@ -254,6 +259,6 @@ namespace Assignment2.Models.GameBoard {
 			}
 
 			return false;
-		}
+		}*/
 	}
 }

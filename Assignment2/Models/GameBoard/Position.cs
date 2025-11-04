@@ -7,12 +7,10 @@ namespace Assignment2.Models.GameBoard
     {
         public int row { get; }
         public int col { get; }
-        public DiskColor color { get; }
-        public Position(int row, int col, DiskColor color)
+        public Position(int row, int col)
         {
             this.row = row;
             this.col = col;
-            this.color = color;
         }
     }
 }
