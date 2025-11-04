@@ -7,8 +7,8 @@ namespace Assignment2.Models.GameBoard
 	{
 		public int row { get; }
 		public int col { get; }
-		public Player Player { get; }
-		public Move(int row, int col, Player player)
+		public DiskColor Player { get; }
+		public Move(int row, int col, DiskColor player)
 		{
 			this.row = row;
 			this.col = col;
