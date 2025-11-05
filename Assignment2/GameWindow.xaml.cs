@@ -17,15 +17,13 @@ namespace Assignment2
     /// </summary>
     public partial class GameWindow : Window
     {
-
+        internal GameGrid board = new Assignment2.View.GameGrid();
         public GameWindow()
         { 
             InitializeComponent();
             this.Width = SystemParameters.PrimaryScreenWidth;
             this.Height = SystemParameters.PrimaryScreenHeight;
         }
-
-        
         public void StartGame_Clicked(object sender, RoutedEventArgs e)
         {
             var Button = (Button)sender;
@@ -35,9 +33,12 @@ namespace Assignment2
 
             player1.Text = Sdialog.nameOne;
             player2.Text = Sdialog.nameTwo;
-            player1NumOfTokens.Text = "2" ;//Chnage to get Score
+            player1NumOfTokens.Text = "2" ;//Change to get Score
             player2NumOfTokens.Text = "2" ;
-            gg.ShowDialog();
+
+            Grid.SetColumn(board, 4);
+            Grid.SetRowSpan(board, 6);
+            GameWindowGrid.Children.Add(board);
         }
         public void UpdateTokens(int black, int white)
         {
@@ -46,6 +47,7 @@ namespace Assignment2
         }
         public void newGame()
         {
+            //GameWindowGrid.Children.Remove(board);
             GameWindowGrid.Children.Clear();
         }
     }

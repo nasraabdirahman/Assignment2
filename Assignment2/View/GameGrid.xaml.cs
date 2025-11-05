@@ -17,7 +17,7 @@ namespace Assignment2.View
     /// <summary>
     /// Interaction logic for GameGrid.xaml
     /// </summary>
-    public partial class GameGrid : Window
+    public partial class GameGrid : UserControl
     {
 
         public GameGrid()
@@ -34,8 +34,8 @@ namespace Assignment2.View
             {
                 Ellipse tokenB = new Ellipse
                 {
-                    Width = 44,
-                    Height = 43,
+                    Width = 90,
+                    Height = 90,
                     Fill = Brushes.Black,
                 };
                 MyGrid.Children.Add(tokenB);
@@ -44,11 +44,10 @@ namespace Assignment2.View
             }
             else if (colour == "White")
             {
-
                 Ellipse tokenW = new Ellipse
                 {
-                    Width = 44,
-                    Height = 43,
+                    Width = 90,
+                    Height = 90,
                     Fill = Brushes.White,
                 };
                 MyGrid.Children.Add(tokenW);
@@ -73,6 +72,11 @@ namespace Assignment2.View
                     }
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
