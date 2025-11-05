@@ -83,7 +83,8 @@
                     Background="LightGray" 
                     Foreground="Black"
                     FontFamily="Baskerville Old Face"
-                    FontSize="22"/>    
+                    FontSize="22"
+                    Click="Button_Clicked"/>    
         </Grid>
     </Border>
 </Window>
