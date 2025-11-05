@@ -1,16 +1,17 @@
-﻿using Assignment2.Player;
-using Assignment2.PlayerT.FactoryT;
+﻿using Assignment2.Models.PlayerT;
 using System;
+using Assignment2.Models.PlayerT.FactoryT;
 
 namespace Assignment2.Models.PlayerT.FactoryT
 {
     internal class Player2 : Factory
     {
+        public Player create(string name, DiskColor disk)
+        {
+            HumanPlayer player2 = new HumanPlayer(name, disk);
+            return player2;
+        }
     }
 
-    public Player create(string name)
-    {
-        HumanPlayer player2 = new HumanPlayer(Player.DiskColor.White);
-        return player2;
-    }
+
 }

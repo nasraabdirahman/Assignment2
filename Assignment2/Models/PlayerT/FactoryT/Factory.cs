@@ -9,6 +9,6 @@ namespace Assignment2.Models.PlayerT.FactoryT
 {
     public interface Factory
     {
-        public Player create(string name);
+        public Player create(string name, DiskColor disk);
     }
 }

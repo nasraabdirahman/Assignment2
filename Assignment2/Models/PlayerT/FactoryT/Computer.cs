@@ -10,10 +10,10 @@ namespace Assignment2.Models.PlayerT.FactoryT
 {
     public class Computer : Factory
     {
-        public Player.Player create(string name)
+        public Player create(string name, DiskColor disk)
         {
 
-            return new ComputerPlayer(name, Player.DiskColor.White);
+            return new ComputerPlayer(name, disk);
         }
 
     }
