@@ -29,7 +29,7 @@ namespace Assignment2.Controller
             
             /*Bestäm version på spelare ett och två*/
 
-            CurrentPlayer = player1;
+            //CurrentPlayer = player1;
             
             
             for (int i = 0; i < 60; i++) // i is the current move
@@ -58,7 +58,7 @@ namespace Assignment2.Controller
         }
         private void SwitchPlayer()
         {
-            CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+            //CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
         }
     }
 }

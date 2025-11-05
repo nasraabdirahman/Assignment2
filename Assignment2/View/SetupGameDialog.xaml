@@ -5,7 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment2"
         mc:Ignorable="d"
-        Title="SetupGameDialog" Height="300" Width="450">
+        FontSize="26"
+        Title="SetupGameDialog" Height="500" Width="800">
+    <Window.Resources>
+        <Style x:Key="ButtonSize" TargetType="RadioButton">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Ellipse x:Name="Bullet" Width="15" Height="15" Stroke="White" StrokeThickness="2" Fill="White"/>
+                            <ContentPresenter Margin="10,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Border BorderBrush="DimGray" BorderThickness="10" Background="Gray">
         <Grid>
@@ -17,12 +35,12 @@
                 <ColumnDefinition Width="15"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="35"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
             <TextBlock Foreground="LimeGreen"
                 FontFamily="Baskerville Old Face"
@@ -31,21 +49,21 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.Row="0"
-                FontSize="34" />
+                FontSize="56" />
             <TextBlock Foreground="LimeGreen"
                 HorizontalAlignment="Center"
                 FontFamily="Baskerville Old Face"
                 Text="Player 1" 
                 Grid.Column="1"
                 Grid.Row="1"
-                FontSize="30"/>
+                FontSize="46"/>
             <TextBlock Foreground="LimeGreen"
                 HorizontalAlignment="Center"
                 FontFamily="Baskerville Old Face"
                 Text="Player 2" 
                 Grid.Column="3"
                 Grid.Row="1"
-                FontSize="30"/>
+                FontSize="46"/>
             <TextBlock Foreground="White"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
@@ -60,30 +78,30 @@
                 Grid.Row="2"/>
             <TextBox x:Name="playerOneName" 
                      BorderBrush="DimGray" 
-                     BorderThickness="3"
+                     BorderThickness="4"
                      Background="Gray" 
                      HorizontalAlignment="Right" 
                      Grid.Column="1" Grid.Row="2" 
-                     Width="60"/>
+                     Width="90"/>
             <TextBox x:Name="playerTwoName" 
                      BorderBrush="DimGray"
-                     BorderThickness="3"
+                     BorderThickness="4"
                      Background="Gray" 
                      HorizontalAlignment="Right" 
                      Grid.Column="3" Grid.Row="2" 
-                     Width="60"/>
-            <RadioButton Content="Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeOne" Grid.Column="1" Grid.Row="3" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeOne" Grid.Column="1" Grid.Row="4" Checked="RadioButton_Checked"/>
+                     Width="90"/>
+            <RadioButton Content = "Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeOne" Grid.Column="1" Grid.Row="3" Checked="RadioButton_Checked" Style="{StaticResource ButtonSize}"/>
+            <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeOne" Grid.Column="1" Grid.Row="4" Checked="RadioButton_Checked" Style="{StaticResource ButtonSize}"/>
 
-            <RadioButton Content="Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="3" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="4" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="3" Checked="RadioButton_Checked" Style="{StaticResource ButtonSize}"/>
+            <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="4" Checked="RadioButton_Checked" Style="{StaticResource ButtonSize}"/>
             <Button x:Name="Start" Content="Start" Grid.ColumnSpan="3" Margin="50,0"  Grid.Column="1" Grid.Row="6" 
                     BorderBrush="DimGray" 
                     BorderThickness="3"
                     Background="LightGray" 
                     Foreground="Black"
                     FontFamily="Baskerville Old Face"
-                    FontSize="22"
+                    FontSize="46"
                     Click="Button_Clicked"/>    
         </Grid>
     </Border>

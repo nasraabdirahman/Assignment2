@@ -17,9 +17,12 @@ namespace Assignment2
     /// </summary>
     public partial class GameWindow : Window
     {
+
         public GameWindow()
-        {
+        { 
             InitializeComponent();
+            this.Width = SystemParameters.PrimaryScreenWidth;
+            this.Height = SystemParameters.PrimaryScreenHeight;
         }
 
         

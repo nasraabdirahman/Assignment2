@@ -5,83 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment2"
         mc:Ignorable="d"
-        Title="GameWindow" Height="450" Width="800">
+        WindowState="Maximized"
+        Title="GameWindow" Width="400" Height="800">
     
 	<Border BorderBrush="DimGray" BorderThickness="10" Background="Gray">
         <Grid x:Name="GameWindowGrid">
 			<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"/>
-				<ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="50"/>
+				<ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="30"/>
 				<ColumnDefinition Width="auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
             <Button x:Name="StartGame" Content="Start Game" 
-                    Grid.Row="0" Grid.Column="1" FontFamily="Baskerville Old Face" 
-                    BorderBrush="LimeGreen" Background="Gray" BorderThickness="6" Click="StartGame_Clicked"/>
+                    Grid.Row="1" Grid.Column="1" FontFamily="Baskerville Old Face" FontSize="30"
+                    BorderBrush="DimGray" Background="Gray" BorderThickness="8" Click="StartGame_Clicked"/>
             <TextBox Foreground="LimeGreen"
                      Background="Gray"
                      BorderBrush="Gray"
                      FontFamily="Baskerville Old Face"
                      x:Name="player1"
                      Text="Player1"
-                     HorizontalAlignment="Center"
-                     Grid.Row="1"
-                     Margin="0,4"
+                     HorizontalAlignment="Left"
+                     Margin="0,20"
+                     Grid.Row="2"
                      Grid.Column="1"
-                     FontSize="24" />
+                     FontSize="60" />
             <TextBox Foreground="LimeGreen"
                      Background="Gray"
                      BorderBrush="Gray"
                      FontFamily="Baskerville Old Face"
                      x:Name="player2"
                      Text="Player2"
-                     HorizontalAlignment="Center"
-                     Grid.Row="3"
-                     Margin="0,4"
+                     HorizontalAlignment="Left"
+                     Grid.Row="4"
                      Grid.Column="1"
-                     FontSize="24" />
+                     FontSize="60" />
             <TextBlock Text="Tokens:"
                        FontFamily="Baskerville Old Face"
-                       Grid.Row="2"
-                       Margin="0,4"
+                       Grid.Row="3"
+                       Margin="20,0"
                        Grid.Column="1"
-                       FontSize="20"/>
+                       FontSize="40"/>
             <TextBlock Text="Tokens:"
                    FontFamily="Baskerville Old Face"
-                   Grid.Row="4"
-                   Margin="0,4"
+                   Grid.Row="5"
+                   Margin="20,0"
                    Grid.Column="1"
-                   FontSize="20"/>
+                   FontSize="40"/>
             <TextBox Foreground="Black"
                  Background="Gray"
                  BorderBrush="Gray"
                  FontFamily="Baskerville Old Face"
                  x:Name="player1NumOfTokens"
                  Text=""
-                 HorizontalAlignment="Center"
-                 Grid.Row="2"
-                 Margin="0,4"
+                 HorizontalAlignment="Right"
+                 Grid.Row="3"
+                 Margin="70,0"
                  Grid.Column="1"
-                 FontSize="20" />
+                 FontSize="40" />
             <TextBox Foreground="Black"
                  Background="Gray"
                  BorderBrush="Gray"
                  FontFamily="Baskerville Old Face"
                  x:Name="player2NumOfTokens"
                  Text=""
-                 HorizontalAlignment="Center"
-                 Grid.Row="4"
-                 Margin="0,4"
+                 HorizontalAlignment="Right"
+                 Grid.Row="5"
+                 Margin="70,0"
                  Grid.Column="1"
-                 FontSize="20" />
+                 FontSize="40" />
         </Grid>
     </Border>
 </Window>
