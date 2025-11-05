@@ -40,9 +40,14 @@ namespace Assignment2.Models.GameBoard {
 				{
 					if (board[row, col] == opcolor) // this optimizes the search for valid moves slightly
 					{
-						Position tempcurrent = new Position(row, col); // add the candidate moves
-						candidatemoves.Add(Touches(tempcurrent));
-					}
+                        Position tempcurrent = new Position(row, col); // add the candidate moves
+                                                                       //candidatemoves.Add(Touches(tempcurrent));
+                        List<Position> candidmoves = Touches(tempcurrent);
+                        foreach (var move in candidmoves)
+                        {
+                            candidatemoves.Add(move);
+                        }
+                    }
 				}
 			}
 			foreach (Position pos in candidatemoves) // check each candidate move for validity
@@ -77,7 +82,7 @@ namespace Assignment2.Models.GameBoard {
 					// check for out of bounds
 					if (newRow >= 0 && newRow < BoardSize && newCol >= 0 && newCol < BoardSize)
 					{
-						surrounding.Add(new Position(newRow, newCol); // add to return list
+						surrounding.Add(new Position(newRow, newCol)); // add to return list
 					}
 				}
 			}
@@ -99,7 +104,7 @@ namespace Assignment2.Models.GameBoard {
 					{
 						continue;
 					}
-					if (ProcessLine(GetLine(position, drow, dcol), player)
+					if (ProcessLine(GetLine(position, drow, dcol), player))
 					{
 						return true; // valid move found
 					}
@@ -116,11 +121,10 @@ namespace Assignment2.Models.GameBoard {
 
 			while (row >= 0 && row < 8 && col >= 0 && col < 8)
 			{
-				line.Add(new Position(row, col, board[row, col]));
+				line.Add(new Position(row, col));
 				row += dRow;
 				col += dCol;
 			}
-
 			return line;
 		}
 		private bool ProcessLine(List<Position> line, DiskColor player)
