@@ -2,8 +2,11 @@
 using Assignment2.PlayerT.FactoryT;
 using System;
 
-internal class Player2 : Factory
+namespace Assignment2.Models.PlayerT.FactoryT
 {
+    internal class Player2 : Factory
+    {
+    }
 
     public Player create(string name)
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment2.Player;
 
-namespace Assignment2.PlayerT.FactoryT
+namespace Assignment2.Models.PlayerT.FactoryT
 {
     public interface Factory
     {
