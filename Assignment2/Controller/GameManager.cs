@@ -20,7 +20,8 @@ namespace Assignment2.Controller
             GameBoard board = new GameBoard();
             bool wasMoveMade = false;
 
-            /*Bestäm färg och version på spelare ett och två*/
+
+            /*Bestäm version på spelare ett och två*/
 
             CurrentPlayer = Player1;
             
