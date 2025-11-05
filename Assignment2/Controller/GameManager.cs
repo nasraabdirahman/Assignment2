@@ -21,17 +21,17 @@ namespace Assignment2.Controller
         {
             GameBoard board = new GameBoard();
             bool wasMoveMade = false;
-
-
+            
             Factory player1 = new Player1();
             Factory player2 = new Computer();
 
-            
+
             /*Bestäm version på spelare ett och två*/
 
-            CurrentPlayer = player1;
-            
-            
+            CurrentPlayer = (Player?)player1;
+
+
+
             for (int i = 0; i < 60; i++) // i is the current move
             {
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
@@ -58,7 +58,7 @@ namespace Assignment2.Controller
         }
         public void SwitchPlayer()
         {
-            CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+            CurrentPlayer = (Player)((CurrentPlayer == Player1) ? Player2 : Player1);
         }
     }
 }
