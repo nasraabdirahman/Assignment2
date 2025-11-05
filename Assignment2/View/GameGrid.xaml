@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Assignment2.View"
         mc:Ignorable="d" FontSize="26"
         Title="GameGrid" Height="390" Width="382">
-    <Grid Background="LimeGreen">
+    <Grid x:Name="MyGrid" Background="LimeGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="44"/>
