@@ -1,5 +1,5 @@
 ﻿using System;
-using Assignment2.Player;
+using Assignment2.Models.PlayerT;
 
 namespace Assignment2.Models.GameBoard
 {

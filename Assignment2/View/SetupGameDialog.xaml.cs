@@ -19,10 +19,10 @@ namespace Assignment2.View
     /// </summary>
     public partial class SetupGameDialog : Window
     {
-        internal string nameOne;
-        internal string nameTwo;
-        internal string playerOneType;
-        internal string playerTwoType;
+        public string nameOne;
+        public string nameTwo;
+        public string playerOneType;
+        public string playerTwoType;
         public SetupGameDialog()
         {
             InitializeComponent();
