@@ -41,5 +41,9 @@ namespace Assignment2
             player1NumOfTokens.Text = Convert.ToString(black) ;
             player2NumOfTokens.Text = Convert.ToString(white);
         }
+        public void newGame()
+        {
+
+        }
     }
 }
