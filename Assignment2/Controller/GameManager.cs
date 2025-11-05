@@ -21,12 +21,11 @@ namespace Assignment2.Controller
         {
             GameBoard board = new GameBoard();
             bool wasMoveMade = false;
-
-
+            
             Factory player1 = new Player1();
             Factory player2 = new Computer();
 
-            
+
             /*Bestäm version på spelare ett och två*/
 
             //CurrentPlayer = player1;

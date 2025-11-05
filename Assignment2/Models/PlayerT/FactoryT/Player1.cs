@@ -8,8 +8,8 @@ namespace Assignment2.Models.PlayerT.FactoryT
     {
         public Player create(string name, DiskColor disk)
         {
-            HumanPlayer player1 = new HumanPlayer(name, disk);
-            return player1;
+            HumanPlayer player = new HumanPlayer(name, disk);
+            return player;
         }
     }
 }
