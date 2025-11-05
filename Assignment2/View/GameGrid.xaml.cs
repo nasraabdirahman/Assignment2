@@ -19,9 +19,44 @@ namespace Assignment2.View
     /// </summary>
     public partial class GameGrid : Window
     {
+
         public GameGrid()
         {
             InitializeComponent();
+            Token("Black", 4, 5);
+            Token("Black", 5, 4);
+            Token("White", 4, 4);
+            Token("White", 5, 5);
         }
+        public void Token(string colour, int row, int column)
+        {
+            if (colour == "Black")
+            {
+                Ellipse tokenB = new Ellipse
+                {
+                    Width = 44,
+                    Height = 43,
+                    Fill = Brushes.Black,
+                };
+                MyGrid.Children.Add(tokenB);
+                Grid.SetRow(tokenB, row);
+                Grid.SetColumn(tokenB, column);
+            }
+            else if (colour == "White")
+            {
+
+                Ellipse tokenW = new Ellipse
+                {
+                    Width = 44,
+                    Height = 43,
+                    Fill = Brushes.White,
+                };
+                MyGrid.Children.Add(tokenW);
+                Grid.SetRow(tokenW, row);
+                Grid.SetColumn(tokenW, column);
+            }
+            return;
+        }
+
     }
 }

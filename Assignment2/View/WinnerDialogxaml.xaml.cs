@@ -19,9 +19,10 @@ namespace Assignment2.View
     /// </summary>
     public partial class WinnerDialogxaml : Window
     {
-        public WinnerDialogxaml()
+        public WinnerDialogxaml(int tokenCount)
         {
             InitializeComponent();
+            winnerTokens.Text = $"You won, with {tokenCount} tokens";
         }
     }
 }

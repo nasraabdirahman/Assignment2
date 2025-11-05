@@ -28,6 +28,19 @@ namespace Assignment2.View
             InitializeComponent();
 
         }
+        internal void Button_Clicked(object sender, RoutedEventArgs e)
+        {
+            var Button = (Button)sender;
+            SetupGame();
+            this.Close();
+        }
+
+        internal void SetupGame()
+        {
+            nameOne = playerOneName.Text;
+            nameTwo = playerTwoName.Text;
+        }
+
         internal void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             var radioButton = (RadioButton)sender;
@@ -41,9 +54,6 @@ namespace Assignment2.View
                 {
                     playerTypeTwo = radioButton.Content.ToString();
                 }
-            }
-            else
-            {
             }
         }
     }

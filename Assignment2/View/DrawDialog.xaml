@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment2.View"
         mc:Ignorable="d"
-        Title="DrawDialog" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DrawDialog" Height="200" Width="250">
+    <Border BorderBrush="DimGray" BorderThickness="10" Background="Gray">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="You Tied!" Foreground="LimeGreen"
+                    FontFamily="Baskerville Old Face" FontSize="28"/>
+            <TextBlock x:Name="drawTokens" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="" Foreground="LimeGreen"
+                    FontFamily="Baskerville Old Face" FontSize="18" Grid.Row="2"/>
+            <Button x:Name="newGame" Content="New Game" Grid.ColumnSpan="2" Grid.Row="3" Margin="20,5" 
+                    FontFamily="Baskerville Old Face" BorderBrush="DimGray" BorderThickness="2"/>
+        </Grid>
+    </Border>
 </Window>
