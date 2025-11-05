@@ -59,13 +59,20 @@ namespace Assignment2.View
         }
         public void ChangeColour(string colour, int x, int y)
         {
-            if(Grid.GetRow(element) == x && Grid.GetColumn(element) == y)
-
-            if(colour == "White")
+            foreach (Ellipse token in MyGrid.Children.OfType<Ellipse>())
             {
-
+                if (Grid.GetRow(token) == x && Grid.GetColumn(token) == y)
+                {
+                    if (colour == "White")
+                    {
+                        token.Fill = Brushes.Black;
+                    }
+                    else 
+                    {
+                        token.Fill = Brushes.White;
+                    }
+                }
             }
         }
-
     }
 }

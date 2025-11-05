@@ -1,6 +1,6 @@
 ﻿using System;
 using Assignment2.Controller;
-using Assignment2.PlayerT;
+using Assignment2.Models.PlayerT;
 
 
 namespace Assignment2.Models.GameBoard {

@@ -33,8 +33,8 @@ namespace Assignment2.Controller
                     CurrentPlayer.RequestMove(validMoves).Wait();
 
                     /* view gör något för att välja*/
-                    Move moveMade = ; // få det valda draget från view
-                    board.MakeMove(moveMade);
+                    //Move moveMade = ; // få det valda draget från view
+                    //board.MakeMove(moveMade);
                     // int score = board.GetScore();
                     SwitchPlayer();
                     wasMoveMade = true;
