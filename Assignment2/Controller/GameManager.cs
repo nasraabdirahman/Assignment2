@@ -56,7 +56,7 @@ namespace Assignment2.Controller
                 }
             }
         }
-        public void SwitchPlayer()
+        private void SwitchPlayer()
         {
             CurrentPlayer = (Player)((CurrentPlayer == Player1) ? Player2 : Player1);
         }

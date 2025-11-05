@@ -25,7 +25,7 @@
 			</Grid.RowDefinitions>
             <Button x:Name="StartGame" Content="Start Game" 
                     Grid.Row="0" Grid.Column="1" FontFamily="Baskerville Old Face" 
-                    BorderBrush="LimeGreen" Background="Gray" BorderThickness="6"/>
+                    BorderBrush="LimeGreen" Background="Gray" BorderThickness="6" Click="StartGame_Clicked"/>
             <TextBox Foreground="LimeGreen"
                      Background="Gray"
                      BorderBrush="Gray"
