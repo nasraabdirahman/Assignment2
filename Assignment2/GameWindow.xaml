@@ -17,11 +17,15 @@
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
+            <Button x:Name="StartGame" Content="Start Game" 
+                    Grid.Row="0" Grid.Column="1" FontFamily="Baskerville Old Face" 
+                    BorderBrush="LimeGreen" Background="Gray" BorderThickness="6"/>
             <TextBox Foreground="LimeGreen"
                      Background="Gray"
                      BorderBrush="Gray"
@@ -29,7 +33,7 @@
                      x:Name="player1"
                      Text="Player1"
                      HorizontalAlignment="Center"
-                     Grid.Row="0"
+                     Grid.Row="1"
                      Margin="0,4"
                      Grid.Column="1"
                      FontSize="24" />
@@ -40,19 +44,19 @@
                      x:Name="player2"
                      Text="Player2"
                      HorizontalAlignment="Center"
-                     Grid.Row="2"
+                     Grid.Row="3"
                      Margin="0,4"
                      Grid.Column="1"
                      FontSize="24" />
             <TextBlock Text="Tokens:"
                        FontFamily="Baskerville Old Face"
-                       Grid.Row="1"
+                       Grid.Row="2"
                        Margin="0,4"
                        Grid.Column="1"
                        FontSize="20"/>
             <TextBlock Text="Tokens:"
                    FontFamily="Baskerville Old Face"
-                   Grid.Row="3"
+                   Grid.Row="4"
                    Margin="0,4"
                    Grid.Column="1"
                    FontSize="20"/>
@@ -63,7 +67,7 @@
                  x:Name="player1NumOfTokens"
                  Text=""
                  HorizontalAlignment="Center"
-                 Grid.Row="1"
+                 Grid.Row="2"
                  Margin="0,4"
                  Grid.Column="1"
                  FontSize="20" />
@@ -74,11 +78,10 @@
                  x:Name="player2NumOfTokens"
                  Text=""
                  HorizontalAlignment="Center"
-                 Grid.Row="3"
+                 Grid.Row="4"
                  Margin="0,4"
                  Grid.Column="1"
                  FontSize="20" />
-            
         </Grid>
     </Border>
 </Window>

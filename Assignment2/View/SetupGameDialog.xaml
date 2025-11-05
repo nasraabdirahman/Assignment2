@@ -22,6 +22,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="20"/>
+                <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
             <TextBlock Foreground="LimeGreen"
                 FontFamily="Baskerville Old Face"
@@ -76,6 +77,13 @@
 
             <RadioButton Content="Computer Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="3" Checked="RadioButton_Checked"/>
             <RadioButton Content="Human Player" Foreground="White" Margin="10,0" GroupName="PlayerTypeTwo" Grid.Column="3" Grid.Row="4" Checked="RadioButton_Checked"/>
+            <Button x:Name="Start" Content="Start" Grid.ColumnSpan="3" Margin="50,0"  Grid.Column="1" Grid.Row="6" 
+                    BorderBrush="DimGray" 
+                    BorderThickness="3"
+                    Background="LightGray" 
+                    Foreground="Black"
+                    FontFamily="Baskerville Old Face"
+                    FontSize="22"/>    
         </Grid>
     </Border>
 </Window>
