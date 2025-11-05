@@ -463,10 +463,10 @@ namespace Assignment2.Models.GameBoard {
 
 			return false;
 		}*/
-	}
+	
 <<<<<<< HEAD
 
-    //checks terminal state
+  /*  //checks terminal state
     public bool isGameOver()
     {
         //checks if the board is full
