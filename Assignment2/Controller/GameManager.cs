@@ -1,4 +1,5 @@
-﻿using Assignment2.Models.GameBoard;
+﻿using Assignment2.Models;
+using Assignment2.Models.GameBoard;
 using Assignment2.Models.PlayerT;
 using Assignment2.Models.PlayerT.FactoryT;
 using System;
@@ -13,17 +14,22 @@ namespace Assignment2.Controller
     {
         // Player with black disks starts first
         public Player CurrentPlayer { get; private set; }
-        public Player Player1 { get; } // svart spelare
-        public Player Player2 { get; }
+        public Factory Player1 { get; } // svart spelare
+        public Factory Player2 { get; }
+
         public GameManager()
         {
             GameBoard board = new GameBoard();
             bool wasMoveMade = false;
 
 
+            Factory player1 = new Player1();
+            Factory player2 = new Computer();
+
+            
             /*Bestäm version på spelare ett och två*/
 
-            CurrentPlayer = Player1;
+            CurrentPlayer = player1;
             
             
             for (int i = 0; i < 60; i++) // i is the current move
