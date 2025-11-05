@@ -1,8 +1,9 @@
 ﻿using Assignment2.Models;
 using System;
+using Assignment2.Models.PlayerT;
+using Assignment2.Models.GameBoard;
 
-
-namespace Assignment2.Player
+namespace Assignment2.Models.PlayerT
 {
     public abstract class Player
     {
@@ -14,7 +15,7 @@ namespace Assignment2.Player
 
         public string Name { get; set; }
 
-        public abstract Task<Move> RequestMove(GameBoard board, List<Move> validMoves);
+        public abstract Task<Move> RequestMove(List<Move> validMoves);
 
 
         public Player( string name,DiskColor disk)

@@ -1,30 +1,35 @@
-﻿using System;
-using Assignment2.Player;
+﻿using Assignment2.Models;
 using Assignment2.Models.GameBoard;
-using Assignment2.Models;
+using Assignment2.Models.PlayerT;
+using System;
 
 
-  public class ComputerPlayer : Player
+namespace Assignment2.Models.PlayerT
 {
-    private static readonly Random Rand = new Random();
-    public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
+    public class ComputerPlayer : Player
     {
-        this.diskColor = disk;
-    }
-
-    public override async Task<Move> RequestMove(GameBoard board, List<Move> validMoves)
-    {
-        await Task.Delay(1000); // 1 second delay to simulate thinking
-
-        // if the move isnt valid reeturn null;
-
-        if(validMoves == null || validMoves.Count == 0)
+        private static readonly Random Rand = new Random();
+        public ComputerPlayer(string name, DiskColor disk) : base(name, disk)
         {
-            return null;
+            this.Name = name;
+            this.diskColor = disk;
         }
-        // chooses random move
-        int index = Rand.Next(validMoves.Count);
-        Move move = validMoves[index];
-        return move;
+
+        public override async Task<Move> RequestMove(List<Move> validMoves)
+        {
+            await Task.Delay(1000); // 1 second delay to simulate thinking
+
+            // if the move isnt valid reeturn null;
+
+            if (validMoves == null || validMoves.Count == 0)
+            {
+                return null;
+            }
+            // chooses random move
+            int index = Rand.Next(validMoves.Count);
+            Move move = validMoves[index];
+            return move;
+        }
     }
+
 }

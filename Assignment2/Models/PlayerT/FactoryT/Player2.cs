@@ -7,7 +7,7 @@ internal class Player2 : Factory
 
     public Player create(string name)
     {
-        HumanPlayer player2 = new HumanPlayer( Player.DiskColor.White);
+        HumanPlayer player2 = new HumanPlayer(Player.DiskColor.White);
         return player2;
     }
 }
