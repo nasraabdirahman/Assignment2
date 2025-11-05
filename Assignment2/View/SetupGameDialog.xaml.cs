@@ -21,8 +21,8 @@ namespace Assignment2.View
     {
         internal string nameOne;
         internal string nameTwo;
-        internal string playerTypeOne;
-        internal string playerTypeTwo;
+        internal string playerOneType;
+        internal string playerTwoType;
         public SetupGameDialog()
         {
             InitializeComponent();
@@ -48,11 +48,11 @@ namespace Assignment2.View
             {
                 if(radioButton.GroupName.ToString() == "playerTypeOne")
                 {
-                    playerTypeOne = radioButton.Content.ToString();
+                    playerOneType = radioButton.Content.ToString();
                 }
                 else
                 {
-                    playerTypeTwo = radioButton.Content.ToString();
+                    playerTwoType = radioButton.Content.ToString();
                 }
             }
         }

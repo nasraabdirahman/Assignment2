@@ -8,7 +8,7 @@
         Title="GameWindow" Height="450" Width="800">
     
 	<Border BorderBrush="DimGray" BorderThickness="10" Background="Gray">
-		<Grid>
+        <Grid x:Name="GameWindowGrid">
 			<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
 				<ColumnDefinition Width="150"/>

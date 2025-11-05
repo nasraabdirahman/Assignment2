@@ -26,6 +26,7 @@ namespace Assignment2.View
         }
         public void newGame_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
             //GameWindow.newGame();
         }
 

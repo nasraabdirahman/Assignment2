@@ -32,7 +32,7 @@ namespace Assignment2
 
             player1.Text = Sdialog.nameOne;
             player2.Text = Sdialog.nameTwo;
-            player1NumOfTokens.Text = "2" ;
+            player1NumOfTokens.Text = "2" ;//Chnage to get Score
             player2NumOfTokens.Text = "2" ;
             gg.ShowDialog();
         }
@@ -43,7 +43,7 @@ namespace Assignment2
         }
         public void newGame()
         {
-
+            GameWindowGrid.Children.Clear();
         }
     }
 }
