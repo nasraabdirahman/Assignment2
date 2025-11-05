@@ -40,9 +40,14 @@ namespace Assignment2.Models.GameBoard {
 				{
 					if (board[row, col] == opcolor) // this optimizes the search for valid moves slightly
 					{
-						Position tempcurrent = new Position(row, col); // add the candidate moves
-						candidatemoves.Add(Touches(tempcurrent));
-					}
+                        Position tempcurrent = new Position(row, col); // add the candidate moves
+                                                                       //candidatemoves.Add(Touches(tempcurrent));
+                        List<Position> candidmoves = Touches(tempcurrent);
+                        foreach (var move in candidmoves)
+                        {
+                            candidatemoves.Add(move);
+                        }
+                    }
 				}
 			}
 			foreach (Position pos in candidatemoves) // check each candidate move for validity
@@ -77,13 +82,13 @@ namespace Assignment2.Models.GameBoard {
 					// check for out of bounds
 					if (newRow >= 0 && newRow < BoardSize && newCol >= 0 && newCol < BoardSize)
 					{
-						surrounding.Add(new Position(newRow, newCol, board[newRow, newCol])); // add to return list
+						surrounding.Add(new Position(newRow, newCol)); // add to return list
 					}
 				}
 			}
 			return surrounding;
 		}
-		private bool IsMoveValid(Position position, Player player) // move through all directions until one is valid else return false
+		private bool IsMoveValid(Position position, DiskColor player) // move through all directions until one is valid else return false
 		{
 			if (board[position.row, position.col] != DiskColor.Empty) // if not empty return false
 			{
@@ -99,32 +104,32 @@ namespace Assignment2.Models.GameBoard {
 					{
 						continue;
 					}
-					if (ProcessLine(GetLine(position, drow, dcol), player)
+					if (ProcessLine(GetLine(position, drow, dcol), player))
 					{
 						return true; // valid move found
 					}
 
 				}
 			}
+			return false;
 		}
 		private List<Position> GetLine(Position start, int dRow, int dCol)
 		{
 			List<Position> line = new List<Position>();
-			int row = start.Row + dRow;
-			int col = start.Col + dCol;
+			int row = start.row + dRow;
+			int col = start.col + dCol;
 
 			while (row >= 0 && row < 8 && col >= 0 && col < 8)
 			{
-				line.Add(new Position(row, col, board[row, col]));
+				line.Add(new Position(row, col));
 				row += dRow;
 				col += dCol;
 			}
-
 			return line;
 		}
-		private bool ProcessLine(List<Position> line, Player player)
+		private bool ProcessLine(List<Position> line, DiskColor player)
 		{
-			DiskColor currcolor = player.DiskColor;
+			DiskColor currcolor = player;
 			DiskColor opcolor = (currcolor == DiskColor.Black) ? DiskColor.White : DiskColor.Black;
 			if (line.Count < 2) // quick check for too short distances
 			{
@@ -134,25 +139,31 @@ namespace Assignment2.Models.GameBoard {
 			int index = 0;
 			while (index < line.Count) // go through line 
 			{
-				if (line[index].color == DiskoColor.Empty) // empty means invalid
+				if (board[line[index].col, line[index].row] == DiskColor.Empty) // empty means invalid
 				{
 					return false;
 				}
-				else if (line[index].color == currcolor) // if we hit our color
+				else if (board[line[index].col, line[index].row] == currcolor) // if we hit our color
 				{                                       // check previous 
-					if (index > 0 && line[index - 1].Color == opColor) // if we have atleast one op then valid
-
-
-
-
-
-			}
+					if (index > 0 && board[line[index - 1].col, line[index].row] == opcolor) // if we have atleast one op then valid
+					{ 
+                        return true;
+                    }
+                    else // else invalid
+                    {
+                        return false;
+                    }
+                }
+                index++; // move to next position
+            }
+            return false;
+		}
 		public void MakeMove(Move move) // updates board
 		{
 			DiskColor diskColor = move.Player;
 
 
-			Position currentpos = new Position(move.row, move.col, board[move.row, move.col]);
+			Position currentpos = new Position(move.row, move.col);
 			int[] dir = { -1, 0, 1 };
 			foreach (int drow in dir)
 			{
@@ -166,35 +177,36 @@ namespace Assignment2.Models.GameBoard {
 					{           // we flip the disks
 						foreach (Position pos in curdir) // go through the line
 						{
-							if (board[pos.Row, pos.Col] == diskColor) // already know the line is valid
+							if (board[pos.row, pos.col] == diskColor) // already know the line is valid
 							{
 								break; // stop when you hit your own disk
 							}
-							board[pos.Row, pos.Col] = diskColor; // change the color
+							board[pos.row, pos.col] = diskColor; // change the color
 						}
 					}
 				}
 			}
 			board[move.row, move.col] = diskColor; // place the new disk
 		}
-		public int[] GetScore() // returns score as two ints
-		{
-			int blackScore = 0;
-			int whiteScore = 0;
-			foreach (Diskcolor disk in board)
-			{
-				if (Diskcolor == Diskcolor.Black)
-				{
-					blackScore++;
-				}
-				else if (Diskcolor == Diskcolor.White)
-				{
-					whiteScore++;
-				}
-			}
-			return new int[] { blackScore, whiteScore }; // returns scores as [blackScore, whiteScore]
-		}
-	}
+		
+        public int[] GetScore() // returns score as two ints
+        {
+            int blackScore = 0;
+            int whiteScore = 0;
+            foreach (DiskColor disk in board)
+            {
+                if (disk == DiskColor.Black)
+                {
+                    blackScore++;
+                }
+                else if (disk == DiskColor.White)
+                {
+                    whiteScore++;
+                }
+            }
+            return new int[] { blackScore, whiteScore }; // returns scores as [blackScore, whiteScore]
+        }
+    }
 }
 			
 	/*	clones the board so that the Ai can make test on it
