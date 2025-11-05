@@ -6,7 +6,8 @@ using Assignment2.Models.PlayerT.FactoryT;
 namespace Assignment2.Controller
 {
 
-    //Get Score, 
+    //Get Score, Matrix (to View)
+    //playerOneType, playerTwoType, nameOne, nameTwo (to model-Player)
     public partial class GameManager
     {
         // Player with black disks starts first

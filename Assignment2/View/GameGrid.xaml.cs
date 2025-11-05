@@ -57,6 +57,15 @@ namespace Assignment2.View
             }
             return;
         }
+        public void ChangeColour(string colour, int x, int y)
+        {
+            if(Grid.GetRow(element) == x && Grid.GetColumn(element) == y)
+
+            if(colour == "White")
+            {
+
+            }
+        }
 
     }
 }
