@@ -22,11 +22,11 @@ namespace Assignment2.View
         public DrawDialog(int tokenCount)
         {
             InitializeComponent();
-            drawTokens.Text = $"You won, with {tokenCount} tokens";
+            drawTokens.Text = $"You tied, with {tokenCount} tokens";
         }
         public void newGame_Click(object sender, RoutedEventArgs e)
         {
-
+            //GameWindow.newGame();
         }
 
     }
