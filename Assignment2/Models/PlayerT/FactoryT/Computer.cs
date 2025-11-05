@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assignment2.Player;
+using Assignment2.ModelsPlayerT;
 using Assignment2.PlayerT.FactoryT;
 
 namespace Assignment2.Models.PlayerT.FactoryT
