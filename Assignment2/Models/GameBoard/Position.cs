@@ -5,8 +5,8 @@ namespace Assignment2.Models.GameBoard
 {
     public class Position
     {
-        public int row { get; }
-        public int col { get; }
+        public int row { get; set; }
+        public int col { get; set; }
         public Position(int row, int col)
         {
             this.row = row;
