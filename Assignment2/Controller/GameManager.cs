@@ -44,10 +44,11 @@ namespace Assignment2.Controller
                     /* view gör något för att välja*/
                     //Move moveMade = ; // få det valda draget från view
                     //board.MakeMove(moveMade);
-                    // int score = board.GetScore();
+                    
                     SwitchPlayer();
                     //tempBoard = board; 
                     wasMoveMade = true;
+
                 }
                 else
                 {
