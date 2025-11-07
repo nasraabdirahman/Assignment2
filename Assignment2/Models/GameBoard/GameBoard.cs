@@ -189,22 +189,17 @@ namespace Assignment2.Models.GameBoard {
 			board[move.row, move.col] = diskColor; // place the new disk
 		}
 		
-        public int[] GetScore() // returns score as two ints
+        public int GetTeamScore(DiskColor team) // returns score as two ints
         {
-            int blackScore = 0;
-            int whiteScore = 0;
+            int score = 0;
             foreach (DiskColor disk in board)
             {
-                if (disk == DiskColor.Black)
+                if (disk == team)
                 {
-                    blackScore++;
-                }
-                else if (disk == DiskColor.White)
-                {
-                    whiteScore++;
+                    score++;
                 }
             }
-            return new int[] { blackScore, whiteScore }; // returns scores as [blackScore, whiteScore]
+            return score; // returns scores as [blackScore, whiteScore]
         }
     }
 }
