@@ -37,6 +37,7 @@ namespace Assignment2
             SetupGameDialog sDialog= new SetupGameDialog();
             GameGrid gg = new GameGrid();
             GameBoard gb = new GameBoard();
+
             sDialog.gameSetup += setUpComplete;
             sDialog.ShowDialog();
 
@@ -45,13 +46,12 @@ namespace Assignment2
             player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.Black)) ;
             player2NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.White)) ;
 
-            Window1 w1 = new Window1();
-            w1.Show();
-
             Grid.SetColumn(board, 4);
             Grid.SetRowSpan(board, 6);
 
             GameWindowGrid.Children.Add(board);
+            Window1 w1 = new Window1();
+            w1.Show();
         }
         public void setUpComplete(string name1, string name2, string type1, string type2)
         {
