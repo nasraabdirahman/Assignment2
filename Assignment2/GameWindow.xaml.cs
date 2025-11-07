@@ -1,5 +1,6 @@
 ﻿using Assignment2.Controller;
 using Assignment2.Models.GameBoard;
+using Assignment2.Models;
 using Assignment2.View;
 using System.Text;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace Assignment2
     {
         public GameManager _manager; 
         internal GameGrid board = new Assignment2.View.GameGrid();
-        public GameWindow(GameManager _manager)
+        public GameWindow()
         { 
             InitializeComponent();
             this.Width = SystemParameters.PrimaryScreenWidth;
@@ -39,8 +40,8 @@ namespace Assignment2
 
             player1.Text = sDialog.nameOne;
             player2.Text = sDialog.nameTwo;
-            player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore("Black")) ;//Change to get Score
-            player2NumOfTokens.Text = Convert.ToString(gb.GetTeamScore("White")) ;
+            player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.Black)) ;//Change to get Score
+            player2NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.White)) ;
 
             Grid.SetColumn(board, 4);
             Grid.SetRowSpan(board, 6);
@@ -58,7 +59,8 @@ namespace Assignment2
         }
         public void startGame()
         {
-
+            GameManager gm = new GameManager();
+            gm.StartGame();
         }
         
         public void newGame()

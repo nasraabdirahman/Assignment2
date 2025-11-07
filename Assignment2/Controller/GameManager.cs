@@ -13,8 +13,9 @@ namespace Assignment2.Controller
     //playerOneType, playerTwoType, nameOne, nameTwo (to model-Player)
     public class GameManager
     {
+        public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
-        public event Action<int[,]> BoardUpdated;
+        public event Action<int, int, int> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
         public Factory Player1 { get; } // svart spelare
         public Factory Player2 { get; }
@@ -24,6 +25,7 @@ namespace Assignment2.Controller
             DiskColor[,] currentboard = new DiskColor[8, 8];
             Factory player1 = new Player1();
             Factory player2 = new Computer();
+            
         }
         public void StartGame()
         {
@@ -31,7 +33,7 @@ namespace Assignment2.Controller
             bool wasMoveMade = false;
             /*Bestäm version på spelare ett och två*/
 
-            CurrentPlayer = player1;
+            //CurrentPlayer = player1;
 
 
             for (int i = 0; i < 60; i++) // i is the current move
@@ -79,12 +81,12 @@ namespace Assignment2.Controller
                         }
                     }
                 }
-                BoardUpdated?.Invoke(currentboard);
+                //BoardUpdated?.Invoke(k, j, );
             }
         }
         private void SwitchPlayer()
         {
-            CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+            //CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
         }
       
     }
