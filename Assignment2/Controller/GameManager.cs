@@ -20,8 +20,7 @@ namespace Assignment2.Controller
         public Player p1 { get; }
         public Player p2 { get; }
         public object MoveSource { get; internal set; }
-        public Player p1 { get; set; }
-        public Player p2 { get; set; }
+
 
         GameBoard board = new GameBoard();
         public GameManager()
@@ -82,14 +81,11 @@ namespace Assignment2.Controller
                         {
                             currentboard[k, j] = DiskColor.Empty;
                         }
-                        BoardUpdated?.Invoke(k, j, (int)board.board[k, j];
+                        //BoardUpdated?.Invoke(k, j, (int)board.board[k, j];
                     }
 
                 }
   
-                    }
-                }
-                
             }
         }
         private void SwitchPlayer()
