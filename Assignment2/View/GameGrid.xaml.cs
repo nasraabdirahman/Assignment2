@@ -83,6 +83,7 @@ namespace Assignment2.View
             manager.coordinates[0] = Grid.GetRow(button);
             manager.coordinates[1] = Grid.GetColumn(button) ;
             
+
             
         }
     }
