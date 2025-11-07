@@ -5,6 +5,7 @@ using Assignment2.Models.PlayerT.FactoryT;
 using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Documents;
+using System.Collections.Generic;
 
 namespace Assignment2.Controller
 {
@@ -17,24 +18,22 @@ namespace Assignment2.Controller
         // Player with black disks starts first
         public event Action<int, int, int> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
-        public Factory Player1 { get; } // svart spelare
-        public Factory Player2 { get; }
+        public Factory p1 { get; }
+        public Factory p2 { get; }
+
         GameBoard board = new GameBoard();
         public GameManager()
         {
             DiskColor[,] currentboard = new DiskColor[8, 8];
-            Factory player1 = new Player1();
-            Factory player2 = new Computer();
             
         }
         public void StartGame()
         {
+            Window1 w1 = new Window1();
+            w1.Show();
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
-            /*Bestäm version på spelare ett och två*/
-
-            //CurrentPlayer = player1;
-
+            
 
             for (int i = 0; i < 60; i++) // i is the current move
             {
@@ -42,9 +41,6 @@ namespace Assignment2.Controller
                 if (validMoves.Count != 0)
                 {
                     CurrentPlayer.RequestMove(validMoves).Wait();
-
-                    /* view gör något för att välja*/
-                    //Move moveMade = ; // få det valda draget från view
                     //board.MakeMove(moveMade);
                     
                     SwitchPlayer();
@@ -63,7 +59,7 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
-                for (int k = 0; k < 8; k++)
+                /*for (int k = 0; k < 8; k++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
@@ -80,7 +76,7 @@ namespace Assignment2.Controller
                             currentboard[k, j] = DiskColor.Empty;
                         }
                     }
-                }
+                }*/
                 //BoardUpdated?.Invoke(k, j, );
             }
         }
