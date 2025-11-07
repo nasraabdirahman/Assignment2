@@ -40,7 +40,6 @@ namespace Assignment2.Controller
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
                 if (validMoves.Count != 0)
                 {
-                    
                     Move moveMade = await CurrentPlayer.RequestMove(validMoves);
                     board.MakeMove(moveMade);
                     gg.Token(Convert.ToString(moveMade.Player), moveMade.row +1, moveMade.col +1);
@@ -54,8 +53,7 @@ namespace Assignment2.Controller
                     // no valid moves, skip turn
                     if (!wasMoveMade)
                     {
-                        // game over
-                        break;
+                        Result();
                     }
                     wasMoveMade = false;
                     SwitchPlayer();
@@ -88,6 +86,25 @@ namespace Assignment2.Controller
             CurrentPlayer = (CurrentPlayer == p1) ? p2 : p1;
         }
       
+        public void Result()
+        {
+            if (board.GetTeamScore(DiskColor.White) > board.GetTeamScore(DiskColor.Black))
+            {
+                WinnerDialog WD = new WinnerDialog(board.GetTeamScore(DiskColor.White), p2.Name);
+                WD.Show();
+            }
+            else if (board.GetTeamScore(DiskColor.White) < board.GetTeamScore(DiskColor.Black))
+            {
+                WinnerDialog WD = new WinnerDialog(board.GetTeamScore(DiskColor.Black), p1.Name);
+                WD.Show();
+            }
+            else if (board.GetTeamScore(DiskColor.White) == board.GetTeamScore(DiskColor.Black))
+            {
+                DrawDialog drawDialog = new DrawDialog(board.GetTeamScore(DiskColor.White));
+                drawDialog.Show();
+            }
+            return;
+        }
     }
 }
 

@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 namespace Assignment2.View
 {
     /// <summary>
-    /// Interaction logic for WinnerDialogxaml.xaml
+    /// Interaction logic for WinnerDialog.xaml
     /// </summary>
-    public partial class WinnerDialogxaml : Window
+    public partial class WinnerDialog : Window
     {
-        public WinnerDialogxaml(int tokenCount)
+        public WinnerDialog(int tokenCount, string name)
         {
             InitializeComponent();
+            Name.Text = name;
             winnerTokens.Text = $"You won, with {tokenCount} tokens";
         }
         public void newGame_Click(object sender, RoutedEventArgs e)
