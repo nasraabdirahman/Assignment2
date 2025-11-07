@@ -128,38 +128,31 @@ namespace Assignment2.Models.GameBoard {
 			}
 			return line;
 		}
-		private bool ProcessLine(List<Position> line, DiskColor player)
-		{
-			DiskColor currcolor = player;
-			DiskColor opcolor = (currcolor == DiskColor.Black) ? DiskColor.White : DiskColor.Black;
-			if (line.Count < 2) // quick check for too short distances
-			{
-				return false;
-			}
+        private bool ProcessLine(List<Position> line, DiskColor player)
+        {
+            DiskColor op = (player == DiskColor.Black) ? DiskColor.White : DiskColor.Black;
+            bool seenOpponent = false;
 
-			int index = 0;
-			while (index < line.Count) // go through line 
-			{
-				if (board[line[index].col, line[index].row] == DiskColor.Empty) // empty means invalid
-				{
-					return false;
-				}
-				else if (board[line[index].col, line[index].row] == currcolor) // if we hit our color
-				{                                       // check previous 
-					if (index > 0 && board[line[index - 1].col, line[index].row] == opcolor) // if we have atleast one op then valid
-					{ 
-                        return true;
-                    }
-                    else // else invalid
-                    {
-                        return false;
-                    }
+            foreach (var p in line)
+            {
+                DiskColor cell = board[p.row, p.col];   // correct order: [row, col]
+
+                if (cell == DiskColor.Empty)
+                    return false;                       // gap → not a capture line
+
+                if (cell == op)
+                {
+                    seenOpponent = true;                // keep scanning
+                    continue;
                 }
-                index++; // move to next position
+
+                // cell == player
+                return seenOpponent;                    // valid only if at least one opponent in between
             }
-            return false;
-		}
-		public void MakeMove(Move move) // updates board
+
+            return false; // reached edge without hitting own disk
+        }
+        public void MakeMove(Move move) // updates board
 		{
 			DiskColor diskColor = move.Player;
 
