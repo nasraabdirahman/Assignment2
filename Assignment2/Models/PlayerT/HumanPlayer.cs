@@ -8,7 +8,7 @@ namespace Assignment2.Models.PlayerT
 {
     public class HumanPlayer : Player
     {
-        string Name;
+        public string Name;
         private DiskColor disk = new DiskColor();
 
         public HumanPlayer(string name, DiskColor disk) : base(name, disk) 
