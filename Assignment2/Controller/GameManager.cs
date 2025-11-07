@@ -30,7 +30,6 @@ namespace Assignment2.Controller
             CurrentPlayer = p1;
             
         }
-        public async Task StartGame()
         public async void StartGame()
         {
             CurrentPlayer = p1;
