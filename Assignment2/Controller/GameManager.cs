@@ -4,6 +4,7 @@ using Assignment2.Models.PlayerT;
 using Assignment2.Models.PlayerT.FactoryT;
 using System;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Documents;
 
 namespace Assignment2.Controller
 {
@@ -17,21 +18,20 @@ namespace Assignment2.Controller
         public Player CurrentPlayer { get; private set; }
         public Factory Player1 { get; } // svart spelare
         public Factory Player2 { get; }
-
-        internal int[,] tempBoard;
-
+        GameBoard board = new GameBoard();
         public GameManager()
         {
-            GameBoard board = new GameBoard();
-            bool wasMoveMade = false;
-            DiskColor [,]currentboard = new DiskColor[8,8];
+            DiskColor[,] currentboard = new DiskColor[8, 8];
             Factory player1 = new Player1();
             Factory player2 = new Computer();
-
-
+        }
+        public void StartGame()
+        {
+            DiskColor[,] currentboard = new DiskColor[8, 8];
+            bool wasMoveMade = false;
             /*Bestäm version på spelare ett och två*/
 
-            //CurrentPlayer = player1;
+            CurrentPlayer = player1;
 
 
             for (int i = 0; i < 60; i++) // i is the current move
@@ -47,7 +47,6 @@ namespace Assignment2.Controller
                     // int score = board.GetScore();
                     SwitchPlayer();
                     //tempBoard = board; 
-                    //BoardUpdated?.Invoke();
                     wasMoveMade = true;
                 }
                 else
@@ -79,11 +78,12 @@ namespace Assignment2.Controller
                         }
                     }
                 }
+                BoardUpdated?.Invoke(currentboard);
             }
         }
         private void SwitchPlayer()
         {
-            //CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+            CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
         }
       
     }
