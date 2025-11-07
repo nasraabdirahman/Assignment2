@@ -1,7 +1,6 @@
 ﻿using Assignment2.Models;
 using Assignment2.Models.GameBoard;
 using Assignment2.Models.PlayerT;
-using Assignment2.Models.PlayerT.FactoryT;
 using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Documents;
@@ -14,12 +13,12 @@ namespace Assignment2.Controller
     //playerOneType, playerTwoType, nameOne, nameTwo (to model-Player)
     public class GameManager
     {
-        public int[] coordinates { get; set; } = new int[2];
+        public int[] coordinates { get; set; } = new int[3];
         // Player with black disks starts first
         public event Action<int, int, int> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
-        public Factory p1 { get; }
-        public Factory p2 { get; }
+        public Player p1 { get; set; }
+        public Player p2 { get; set; }
 
         GameBoard board = new GameBoard();
         public GameManager()
@@ -29,8 +28,6 @@ namespace Assignment2.Controller
         }
         public void StartGame()
         {
-            Window1 w1 = new Window1();
-            w1.Show();
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
             
@@ -76,8 +73,10 @@ namespace Assignment2.Controller
                             currentboard[k, j] = DiskColor.Empty;
                         }
                     }
-                }*/
-                //BoardUpdated?.Invoke(k, j, );
+                }
+                //BoardUpdated?.Invoke(k, j, );*/
+                Window1 w1 = new Window1();
+                w1.Show();
             }
         }
         private void SwitchPlayer()
