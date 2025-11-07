@@ -16,6 +16,7 @@ namespace Assignment2.Models.PlayerT
             this.Name = name;
             this.disk = disk;
         }
+        private TaskCompletionSource<Move> _moveSource;
 
         public override async Task<Move> RequestMove(List<Move> validMoves)
         {
@@ -28,6 +29,7 @@ namespace Assignment2.Models.PlayerT
             {
                 throw new Exception("Invalid move, Try again!");
             }
+
             return move;
         }
     }

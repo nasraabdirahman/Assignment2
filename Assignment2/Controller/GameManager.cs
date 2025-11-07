@@ -59,13 +59,14 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
-                /*for (int k = 0; k < 8; k++)
+                for (int k = 0; k < 8; k++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
                         if (board.board[k, j] == DiskColor.Black)
                         {
                             currentboard[k, j] = DiskColor.Black;
+
                         }
                         else if (board.board[k, j] == DiskColor.White)
                         {
@@ -76,7 +77,7 @@ namespace Assignment2.Controller
                             currentboard[k, j] = DiskColor.Empty;
                         }
                     }
-                }*/
+                }
                 //BoardUpdated?.Invoke(k, j, );
             }
         }
