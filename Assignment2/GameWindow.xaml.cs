@@ -2,7 +2,6 @@
 using Assignment2.Models;
 using Assignment2.Models.GameBoard;
 using Assignment2.Models.PlayerT;
-using Assignment2.Models.PlayerT.FactoryT;
 using Assignment2.View;
 using System.Text;
 using System.Windows;
@@ -22,7 +21,7 @@ namespace Assignment2
     /// </summary>
     public partial class GameWindow : Window
     {
-        public GameManager manager; 
+        public GameManager manager = new GameManager();
         internal GameGrid board = new Assignment2.View.GameGrid();
 
         public GameWindow()

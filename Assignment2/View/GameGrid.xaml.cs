@@ -1,4 +1,6 @@
 ﻿using Assignment2.Controller;
+using Assignment2.Models.GameBoard;
+using Assignment2.Models.PlayerT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace Assignment2.View
     /// </summary>
     public partial class GameGrid : UserControl
     {
-        public GameManager manager{ get; set;}
+        public GameManager manager { get; set; }
 
         public GameGrid()
         {
@@ -68,7 +70,7 @@ namespace Assignment2.View
                     {
                         token.Fill = Brushes.Black;
                     }
-                    else 
+                    else
                     {
                         token.Fill = Brushes.White;
                     }
@@ -79,8 +81,14 @@ namespace Assignment2.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            manager.coordinates[0] = Grid.GetRow(button);
-            manager.coordinates[1] = Grid.GetColumn(button) ;
+            int row = Grid.GetRow(button);
+            int col = Grid.GetColumn(button);
+
+            if (manager.CurrentPlayer is HumanPlayer human && human.MoveSource != null)
+            {
+                Move move = new Move(row, col, human.diskColor);
+                human.MoveSource.SetResult(move); // completes the awaited Task
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Assignment2.Models;
 using Assignment2.Models.GameBoard;
 using Assignment2.Models.PlayerT;
-using Assignment2.Models.PlayerT.FactoryT;
 using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Documents;
@@ -16,18 +15,20 @@ namespace Assignment2.Controller
     {
         public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
-        public event Action<int, int, int> BoardUpdated;
+        public event Action<int, int, int > BoardUpdated;
         public Player CurrentPlayer { get; private set; }
-        public Factory p1 { get; }
-        public Factory p2 { get; }
+        public Player p1 { get; }
+        public Player p2 { get; }
+        public object MoveSource { get; internal set; }
 
         GameBoard board = new GameBoard();
         public GameManager()
         {
             DiskColor[,] currentboard = new DiskColor[8, 8];
+            CurrentPlayer = p1;
             
         }
-        public void StartGame()
+        public async Task StartGame()
         {
             Window1 w1 = new Window1();
             w1.Show();
@@ -40,8 +41,8 @@ namespace Assignment2.Controller
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
                 if (validMoves.Count != 0)
                 {
-                    CurrentPlayer.RequestMove(validMoves).Wait();
-                    //board.MakeMove(moveMade);
+                    Move moveMade = await CurrentPlayer.RequestMove(validMoves); // awaits player
+                    board.MakeMove(moveMade);
                     
                     SwitchPlayer();
                     //tempBoard = board; 
@@ -59,7 +60,7 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
-                /*for (int k = 0; k < 8; k++)
+                for (int k = 0; k < 8; k++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
@@ -75,14 +76,16 @@ namespace Assignment2.Controller
                         {
                             currentboard[k, j] = DiskColor.Empty;
                         }
+                        BoardUpdated?.Invoke(k, j, (int)board.board[k, j];
                     }
-                }*/
-                //BoardUpdated?.Invoke(k, j, );
+
+                }
+  
             }
         }
         private void SwitchPlayer()
         {
-            //CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+            CurrentPlayer = (CurrentPlayer == p1) ? p2 : p1;
         }
       
     }

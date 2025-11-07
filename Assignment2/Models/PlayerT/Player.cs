@@ -10,7 +10,7 @@ namespace Assignment2.Models.PlayerT
         
 
         // manually control the tasks that is done
-        internal protected TaskCompletionSource<Move>? MoveSource;
+        internal protected TaskCompletionSource<Move> MoveSource;
         public DiskColor diskColor { get; set; }
 
         public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace Assignment2.Models.PlayerT
         public abstract Task<Move> RequestMove(List<Move> validMoves);
 
 
-        public Player( string name,DiskColor disk)
+        public Player(string name,DiskColor disk)
         {
             this.diskColor = disk;
             this.Name = name;
