@@ -40,9 +40,9 @@ namespace Assignment2.Controller
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
                 if (validMoves.Count != 0)
                 {
-                    CurrentPlayer.RequestMove(validMoves).Wait();
-                    // Move moveMade =
-                    //board.MakeMove(moveMade);
+                    
+                    Move moveMade = CurrentPlayer.RequestMove(validMoves).Wait();
+                    board.MakeMove(moveMade);
 
                     SwitchPlayer();
                     wasMoveMade = true;
