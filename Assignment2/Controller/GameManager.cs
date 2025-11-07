@@ -24,7 +24,7 @@ namespace Assignment2.Controller
         {
             GameBoard board = new GameBoard();
             bool wasMoveMade = false;
-            
+            DiskColor [,]currentboard = new DiskColor[8,8];
             Factory player1 = new Player1();
             Factory player2 = new Computer();
 
@@ -32,12 +32,13 @@ namespace Assignment2.Controller
             /*Bestäm version på spelare ett och två*/
 
             //CurrentPlayer = player1;
-            
-            
+
+
             for (int i = 0; i < 60; i++) // i is the current move
             {
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
-                if (validMoves.Count != 0) {
+                if (validMoves.Count != 0)
+                {
                     CurrentPlayer.RequestMove(validMoves).Wait();
 
                     /* view gör något för att välja*/
@@ -45,10 +46,12 @@ namespace Assignment2.Controller
                     //board.MakeMove(moveMade);
                     // int score = board.GetScore();
                     SwitchPlayer();
-                    tempBoard = board; 
-                    BoardUpdated?.Invoke(board());
+
+
                     wasMoveMade = true;
-                } else {
+                }
+                else
+                {
                     // no valid moves, skip turn
                     if (!wasMoveMade)
                     {
@@ -58,12 +61,31 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
+                for (int k = 0; k < 8; k++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (board.board[k, j] == DiskColor.Black)
+                        {
+                            currentboard[k, j] = DiskColor.Black;
+                        }
+                        else if (board.board[k, j] == DiskColor.White)
+                        {
+                            currentboard[k, j] = DiskColor.White;
+                        }
+                        else
+                        {
+                            currentboard[k, j] = DiskColor.Empty;
+                        }
+                    }
+                }
             }
         }
         private void SwitchPlayer()
         {
             //CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
         }
+      
     }
 }
 
