@@ -44,7 +44,7 @@ namespace Assignment2.Controller
                     Move moveMade = await CurrentPlayer.RequestMove(validMoves);
                     board.MakeMove(moveMade);
                     gg.Token(Convert.ToString(moveMade.Player), moveMade.row +1, moveMade.col +1);
-                    Position chosenMove = new Position (coordinates[0], coordinates[1]);
+                    Position chosenMove = new Position( coordinates[0], coordinates[1]);
                     SwitchPlayer();
                     wasMoveMade = true;
 
