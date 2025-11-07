@@ -2,7 +2,6 @@
 using Assignment2.Models;
 using Assignment2.Models.GameBoard;
 using Assignment2.Models.PlayerT;
-using Assignment2.Models.PlayerT.FactoryT;
 using Assignment2.View;
 using System.Text;
 using System.Windows;
@@ -22,10 +21,12 @@ namespace Assignment2
     /// </summary>
     public partial class GameWindow : Window
     {
-        public GameManager manager; 
+        GameManager manager = new GameManager(); 
         internal GameGrid board = new Assignment2.View.GameGrid();
+        public Player p1 {  get; set; }
+        public Player p2 { get; set; }
 
-        public GameWindow()
+        public GameWindow() 
         { 
             InitializeComponent();
             this.Width = SystemParameters.PrimaryScreenWidth;
@@ -50,31 +51,31 @@ namespace Assignment2
             Grid.SetRowSpan(board, 6);
 
             GameWindowGrid.Children.Add(board);
-            Window1 w1 = new Window1();
-            w1.Show();
+            manager.p1 = this.p1;
+            manager.p2 = this.p2;
+            //manager.StartGame();
         }
         public void setUpComplete(string name1, string name2, string type1, string type2)
         {
             if (type1 == "Human Player")
             {
-                HumanPlayer p1 = new HumanPlayer(name1, DiskColor.Black);
+                p1 = new HumanPlayer(name1, DiskColor.Black);
             }
             else
             {
-                ComputerPlayer p1 = new ComputerPlayer(name1, DiskColor.Black);
+                p1 = new ComputerPlayer(name1, DiskColor.Black);
             }
             if (type2 == "Human Player")
             {
-                HumanPlayer p2 = new HumanPlayer(name1, DiskColor.Black);
+                p2 = new HumanPlayer(name2, DiskColor.White);
             }
             else 
             {
-                ComputerPlayer p2 = new ComputerPlayer(name1, DiskColor.Black);
+                p2 = new ComputerPlayer(name2, DiskColor.White);
             }
-            manager.StartGame();
         }
 
-        public void updateTokens(int black, int white)
+        public void updateTokenSum(int black, int white)
         {
             player1NumOfTokens.Text = Convert.ToString(black) ;
             player2NumOfTokens.Text = Convert.ToString(white);

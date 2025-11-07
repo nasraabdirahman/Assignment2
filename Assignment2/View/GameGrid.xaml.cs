@@ -31,7 +31,7 @@ namespace Assignment2.View
             Token("White", 4, 4);
             Token("White", 5, 5);
         }
-        public void Token(string colour, int row, int column)
+        public void Token(string colour, int x, int y)
         {
             if (colour == "Black")
             {
@@ -42,8 +42,8 @@ namespace Assignment2.View
                     Fill = Brushes.Black,
                 };
                 MyGrid.Children.Add(tokenB);
-                Grid.SetRow(tokenB, row);
-                Grid.SetColumn(tokenB, column);
+                Grid.SetRow(tokenB, x);
+                Grid.SetColumn(tokenB, y);
             }
             else if (colour == "White")
             {
@@ -54,8 +54,8 @@ namespace Assignment2.View
                     Fill = Brushes.White,
                 };
                 MyGrid.Children.Add(tokenW);
-                Grid.SetRow(tokenW, row);
-                Grid.SetColumn(tokenW, column);
+                Grid.SetRow(tokenW, x);
+                Grid.SetColumn(tokenW, y);
             }
             return;
         }
