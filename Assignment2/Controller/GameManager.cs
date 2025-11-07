@@ -87,7 +87,6 @@ namespace Assignment2.Controller
         {
             CurrentPlayer = (CurrentPlayer == p1) ? p2 : p1;
         }
-      
     }
 }
 
