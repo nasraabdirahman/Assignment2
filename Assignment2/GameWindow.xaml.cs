@@ -75,7 +75,7 @@ namespace Assignment2
             }
         }
 
-        public void updateTokens(int black, int white)
+        public void updateTokenSum(int black, int white)
         {
             player1NumOfTokens.Text = Convert.ToString(black) ;
             player2NumOfTokens.Text = Convert.ToString(white);

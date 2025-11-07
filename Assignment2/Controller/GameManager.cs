@@ -5,6 +5,7 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Documents;
 using System.Collections.Generic;
+using Assignment2.View;
 
 namespace Assignment2.Controller
 {
@@ -13,7 +14,7 @@ namespace Assignment2.Controller
     //playerOneType, playerTwoType, nameOne, nameTwo (to model-Player)
     public class GameManager
     {
-        public int[] coordinates { get; set; } = new int[3];
+        public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
         public event Action<int, int, int> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
@@ -30,6 +31,7 @@ namespace Assignment2.Controller
         {
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
+            GameGrid gg = new GameGrid();
             
 
             for (int i = 0; i < 60; i++) // i is the current move
@@ -56,7 +58,8 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
-                /*for (int k = 0; k < 8; k++)
+
+                for (int k = 0; k < 8; k++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
@@ -74,7 +77,7 @@ namespace Assignment2.Controller
                         }
                     }
                 }
-                //BoardUpdated?.Invoke(k, j, );*/
+                //BoardUpdated?.Invoke(k, j, );
                 Window1 w1 = new Window1();
                 w1.Show();
             }
