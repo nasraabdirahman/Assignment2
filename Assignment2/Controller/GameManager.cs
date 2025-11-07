@@ -4,6 +4,7 @@ using Assignment2.Models.PlayerT;
 using Assignment2.Models.PlayerT.FactoryT;
 using System;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Documents;
 
 namespace Assignment2.Controller
 {
@@ -12,23 +13,24 @@ namespace Assignment2.Controller
     //playerOneType, playerTwoType, nameOne, nameTwo (to model-Player)
     public class GameManager
     {
+        public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
-        public event Action<int[,]> BoardUpdated;
+        public event Action<int, int, int> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
         public Factory Player1 { get; } // svart spelare
         public Factory Player2 { get; }
-
-        internal int[,] tempBoard;
-
+        GameBoard board = new GameBoard();
         public GameManager()
         {
-            GameBoard board = new GameBoard();
-            bool wasMoveMade = false;
-            DiskColor [,]currentboard = new DiskColor[8,8];
+            DiskColor[,] currentboard = new DiskColor[8, 8];
             Factory player1 = new Player1();
             Factory player2 = new Computer();
-
-
+            
+        }
+        public void StartGame()
+        {
+            DiskColor[,] currentboard = new DiskColor[8, 8];
+            bool wasMoveMade = false;
             /*Bestäm version på spelare ett och två*/
 
             //CurrentPlayer = player1;
@@ -44,11 +46,11 @@ namespace Assignment2.Controller
                     /* view gör något för att välja*/
                     //Move moveMade = ; // få det valda draget från view
                     //board.MakeMove(moveMade);
-                    // int score = board.GetScore();
+                    
                     SwitchPlayer();
-
-
+                    //tempBoard = board; 
                     wasMoveMade = true;
+
                 }
                 else
                 {
@@ -79,6 +81,7 @@ namespace Assignment2.Controller
                         }
                     }
                 }
+                //BoardUpdated?.Invoke(k, j, );
             }
         }
         private void SwitchPlayer()

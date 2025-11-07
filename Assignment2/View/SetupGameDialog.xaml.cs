@@ -19,6 +19,7 @@ namespace Assignment2.View
     /// </summary>
     public partial class SetupGameDialog : Window
     {
+        public event Action<string, string, string, string> gameSetup;
         public string nameOne;
         public string nameTwo;
         public string playerOneType;
@@ -33,6 +34,7 @@ namespace Assignment2.View
             var Button = (Button)sender;
             SetupGame();
             this.Close();
+            gameSetup?.Invoke(nameOne, nameTwo, playerOneType, playerTwoType);
         }
 
         internal void SetupGame()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assignment2.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Assignment2.View
     /// </summary>
     public partial class GameGrid : UserControl
     {
+        public GameManager manager{ get; set;}
 
         public GameGrid()
         {
@@ -76,7 +78,9 @@ namespace Assignment2.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = (Button)sender;
+            manager.coordinates[0] = Grid.GetRow(button);
+            manager.coordinates[1] = Grid.GetColumn(button) ;
         }
     }
 }
