@@ -58,7 +58,6 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
-
                 for (int k = 0; k < 8; k++)
                 {
                     for (int j = 0; j < 8; j++)
