@@ -42,7 +42,7 @@ namespace Assignment2.Controller
                     
                     Move moveMade = CurrentPlayer.RequestMove(validMoves).Wait();
                     board.MakeMove(moveMade);
-
+                    gg.Token(Convert.ToString(moveMade.Player), moveMade.row, moveMade.col );
                     SwitchPlayer();
                     wasMoveMade = true;
 
@@ -65,11 +65,12 @@ namespace Assignment2.Controller
                         if (board.board[k, j] == DiskColor.Black)
                         {
                             currentboard[k, j] = DiskColor.Black;
-
+                            gg.ChangeColour("Black", k+1, j+1);
                         }
                         else if (board.board[k, j] == DiskColor.White)
                         {
                             currentboard[k, j] = DiskColor.White;
+                            gg.ChangeColour("White", k+1, j+1);
                         }
                         else
                         {
