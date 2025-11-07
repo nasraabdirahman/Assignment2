@@ -25,7 +25,7 @@
             <TextBlock x:Name="winnerTokens" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="" Foreground="LimeGreen"
                         FontFamily="Baskerville Old Face" FontSize="18" Grid.Row="2"/>
             <Button x:Name="newGame" Content="New Game" Grid.ColumnSpan="2" Grid.Row="3" Margin="20,5" 
-                    FontFamily="Baskerville Old Face" BorderBrush="DimGray" BorderThickness="2"/>
+                    FontFamily="Baskerville Old Face" BorderBrush="DimGray" BorderThickness="2" Click="newGame_Click"/>
         </Grid>
     </Border>
 </Window>
