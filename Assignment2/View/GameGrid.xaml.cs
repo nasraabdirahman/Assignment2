@@ -80,12 +80,8 @@ namespace Assignment2.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            manager.coordinates[0] = Grid.GetRow(button);
-            manager.coordinates[1] = Grid.GetColumn(button) ;
-            
-            int srow = Grid.GetRow(button) - 1;
-            int scol = Grid.GetColumn(button) - 1;
-            Position chosenMove = new Position {row = srow, col = scol};
+            manager.coordinates[0] = Grid.GetRow(button)-1;
+            manager.coordinates[1] = Grid.GetColumn(button)-1 ;
 
             // Sätta resultatet på tasken:
             

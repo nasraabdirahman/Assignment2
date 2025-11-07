@@ -43,6 +43,7 @@ namespace Assignment2.Controller
                     Move moveMade = CurrentPlayer.RequestMove(validMoves).Wait();
                     board.MakeMove(moveMade);
                     gg.Token(Convert.ToString(moveMade.Player), moveMade.row, moveMade.col );
+                    Position chosenMove = new Position { row = coordinates[0], col = coordinates[1] };
                     SwitchPlayer();
                     wasMoveMade = true;
 
