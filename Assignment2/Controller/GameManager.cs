@@ -26,7 +26,7 @@ namespace Assignment2.Controller
             DiskColor[,] currentboard = new DiskColor[8, 8];
             
         }
-        public void StartGame()
+        public async void StartGame()
         {
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
@@ -39,9 +39,9 @@ namespace Assignment2.Controller
                 if (validMoves.Count != 0)
                 {
                     
-                    Move moveMade = CurrentPlayer.RequestMove(validMoves).Wait();
+                    Move moveMade = await CurrentPlayer.RequestMove(validMoves);
                     board.MakeMove(moveMade);
-                    gg.Token(Convert.ToString(moveMade.Player), moveMade.row, moveMade.col );
+                    gg.Token(Convert.ToString(moveMade.Player), moveMade.row +1, moveMade.col +1);
                     Position chosenMove = new Position { row = coordinates[0], col = coordinates[1] };
                     SwitchPlayer();
                     wasMoveMade = true;
