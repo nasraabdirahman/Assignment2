@@ -41,10 +41,10 @@ namespace Assignment2.Controller
                 if (validMoves.Count != 0)
                 {
                     CurrentPlayer.RequestMove(validMoves).Wait();
+                    // Move moveMade =
                     //board.MakeMove(moveMade);
-                    
+
                     SwitchPlayer();
-                    //tempBoard = board; 
                     wasMoveMade = true;
 
                 }
