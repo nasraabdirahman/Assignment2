@@ -190,7 +190,7 @@ namespace Assignment2.Models.GameBoard {
 			board[move.row, move.col] = diskColor; // place the new disk
 		}
 		
-        public int GetTeamScore(DiskColor team) // returns score as two ints
+        public int GetTeamScore(DiskColor team) 
         {
             int score = 0;
             foreach (DiskColor disk in board)
@@ -200,7 +200,7 @@ namespace Assignment2.Models.GameBoard {
                     score++;
                 }
             }
-            return score; // returns scores as [blackScore, whiteScore]
+            return score; 
         }
     }
 }
