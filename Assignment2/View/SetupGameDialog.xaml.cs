@@ -33,10 +33,6 @@ namespace Assignment2.View
         {
             var Button = (Button)sender;
             SetupGame();
-
-            Window1 w1 = new Window1();
-            w1.W1.Text = playerOneType;
-            w1.Show();
             gameSetup?.Invoke(nameOne, nameTwo, playerOneType, playerTwoType);
             this.Close();
         }
@@ -52,7 +48,7 @@ namespace Assignment2.View
             var radioButton = (RadioButton)sender;
             if (radioButton.IsChecked == true)
             {
-                if(radioButton.GroupName == "playerTypeOne")
+                if(radioButton.GroupName == "playerOneType")
                 {
                     playerOneType = radioButton.Content.ToString();
                 }

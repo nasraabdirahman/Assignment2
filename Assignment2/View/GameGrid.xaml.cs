@@ -1,6 +1,5 @@
 ﻿using Assignment2.Controller;
 using Assignment2.Models.GameBoard;
-using Assignment2.Models.PlayerT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +31,7 @@ namespace Assignment2.View
             Token("White", 4, 4);
             Token("White", 5, 5);
         }
-        public void Token(string colour, int row, int column)
+        public void Token(string colour, int x, int y)
         {
             if (colour == "Black")
             {
@@ -43,8 +42,8 @@ namespace Assignment2.View
                     Fill = Brushes.Black,
                 };
                 MyGrid.Children.Add(tokenB);
-                Grid.SetRow(tokenB, row);
-                Grid.SetColumn(tokenB, column);
+                Grid.SetRow(tokenB, x);
+                Grid.SetColumn(tokenB, y);
             }
             else if (colour == "White")
             {
@@ -55,8 +54,8 @@ namespace Assignment2.View
                     Fill = Brushes.White,
                 };
                 MyGrid.Children.Add(tokenW);
-                Grid.SetRow(tokenW, row);
-                Grid.SetColumn(tokenW, column);
+                Grid.SetRow(tokenW, x);
+                Grid.SetColumn(tokenW, y);
             }
             return;
         }
@@ -81,14 +80,8 @@ namespace Assignment2.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            int row = Grid.GetRow(button);
-            int col = Grid.GetColumn(button);
-
-            if (manager.CurrentPlayer is HumanPlayer human && human.MoveSource != null)
-            {
-                Move move = new Move(row, col, human.diskColor);
-                human.MoveSource.SetResult(move); // completes the awaited Task
-            }
+            manager.coordinates[0] = Grid.GetRow(button)-1;
+            manager.coordinates[1] = Grid.GetColumn(button)-1 ;
         }
     }
 }

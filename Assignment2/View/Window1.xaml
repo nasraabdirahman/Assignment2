@@ -8,6 +8,5 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <TextBlock Text="Exceptions" FontSize="30"/>
-        <TextBox x:Name="W1"   Text=""/>
     </Grid>
 </Window>
