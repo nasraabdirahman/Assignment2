@@ -50,6 +50,7 @@ namespace Assignment2
         public void setUpComplete(string name1, string name2, string type1, string type2)
         {
 
+
         }
 
         public void updateTokens(int black, int white)
