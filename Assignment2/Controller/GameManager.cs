@@ -45,8 +45,8 @@ namespace Assignment2.Controller
                     //board.MakeMove(moveMade);
                     // int score = board.GetScore();
                     SwitchPlayer();
-                    tempBoard = board; 
-                    BoardUpdated?.Invoke(board());
+                    //tempBoard = board; 
+                    //BoardUpdated?.Invoke();
                     wasMoveMade = true;
                 } else {
                     // no valid moves, skip turn
