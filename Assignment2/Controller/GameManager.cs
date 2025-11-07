@@ -29,6 +29,7 @@ namespace Assignment2.Controller
         }
         public async void StartGame()
         {
+            CurrentPlayer = p1;
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
             GameGrid gg = new GameGrid();
@@ -43,7 +44,7 @@ namespace Assignment2.Controller
                     Move moveMade = await CurrentPlayer.RequestMove(validMoves);
                     board.MakeMove(moveMade);
                     gg.Token(Convert.ToString(moveMade.Player), moveMade.row +1, moveMade.col +1);
-                    Position chosenMove = new Position { row = coordinates[0], col = coordinates[1] };
+                    Position chosenMove = new Position (coordinates[0], coordinates[1]);
                     SwitchPlayer();
                     wasMoveMade = true;
 
@@ -86,7 +87,7 @@ namespace Assignment2.Controller
         }
         private void SwitchPlayer()
         {
-            //CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+            CurrentPlayer = (CurrentPlayer == p1) ? p2 : p1;
         }
       
     }
