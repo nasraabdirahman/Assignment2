@@ -22,7 +22,7 @@ namespace Assignment2
     public partial class GameWindow : Window
     {
         GameManager manager = new GameManager(); 
-        internal GameGrid board = new Assignment2.View.GameGrid();
+        public GameGrid GameGrid = new GameGrid();
         public Player p1 {  get; set; }
         public Player p2 { get; set; }
 
@@ -47,13 +47,13 @@ namespace Assignment2
             player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.Black)) ;
             player2NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.White)) ;
 
-            Grid.SetColumn(board, 4);
-            Grid.SetRowSpan(board, 6);
+            Grid.SetColumn(GameGrid, 4);
+            Grid.SetRowSpan(GameGrid, 6);
 
-            GameWindowGrid.Children.Add(board);
+            GameWindowGrid.Children.Add(GameGrid);
             manager.p1 = this.p1;
             manager.p2 = this.p2;
-            //manager.StartGame();
+            manager.StartGame();
         }
         public void setUpComplete(string name1, string name2, string type1, string type2)
         {
