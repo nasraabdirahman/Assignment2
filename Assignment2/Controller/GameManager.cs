@@ -16,7 +16,6 @@ namespace Assignment2.Controller
     {
         public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
-        public event Action<int, int, int> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
         public Player p1 { get; set; }
         public Player p2 { get; set; }
@@ -79,7 +78,6 @@ namespace Assignment2.Controller
                         }
                     }
                 }
-                //BoardUpdated?.Invoke(k, j, );
                 Window1 w1 = new Window1();
                 w1.Show();
             }

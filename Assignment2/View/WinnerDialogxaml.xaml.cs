@@ -24,5 +24,10 @@ namespace Assignment2.View
             InitializeComponent();
             winnerTokens.Text = $"You won, with {tokenCount} tokens";
         }
+        public void newGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            //GameWindow.newGame();
+        }
     }
 }
