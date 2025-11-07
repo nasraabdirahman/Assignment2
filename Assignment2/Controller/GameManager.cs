@@ -18,7 +18,11 @@ namespace Assignment2.Controller
         // Player with black disks starts first
         public Player CurrentPlayer { get; private set; }
         public Player p1 { get; set; }
+<<<<<<< HEAD
         public Player p2 { get; set; }
+=======
+        public Player p2 { get;set; }
+>>>>>>> 2989bec15fbc5005e55ae9cf6b9cb35447a4b0e4
         public object MoveSource { get; internal set; }
 
         public GameGrid GameGrid {  get; set; }
@@ -35,7 +39,12 @@ namespace Assignment2.Controller
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
                 if (validMoves.Count != 0)
                 {
+<<<<<<< HEAD
                     Move moveMade = await CurrentPlayer.RequestMove(validMoves);
+=======
+                    
+                    Move moveMade = new Move ( coordinates[0], coordinates[1], CurrentPlayer.diskColor);
+>>>>>>> 2989bec15fbc5005e55ae9cf6b9cb35447a4b0e4
                     board.MakeMove(moveMade);
                     Position chosenMove = new Position( coordinates[0], coordinates[1]);
                     GameGrid.Token(Convert.ToString(CurrentPlayer.diskColor), chosenMove.row + 1, chosenMove.col + 1);

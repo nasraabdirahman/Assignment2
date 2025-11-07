@@ -84,6 +84,7 @@ namespace Assignment2.View
 
             manager.coordinates[0] = Grid.GetRow(button)-1;
             manager.coordinates[1] = Grid.GetColumn(button)-1 ;
+
         }
     }
 }
