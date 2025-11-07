@@ -29,6 +29,7 @@ namespace Assignment2.Controller
         }
         public void StartGame()
         {
+            
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
             /*Bestäm version på spelare ett och två*/
@@ -63,7 +64,7 @@ namespace Assignment2.Controller
                     wasMoveMade = false;
                     SwitchPlayer();
                 }
-                for (int k = 0; k < 8; k++)
+                /*for (int k = 0; k < 8; k++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
@@ -80,8 +81,8 @@ namespace Assignment2.Controller
                             currentboard[k, j] = DiskColor.Empty;
                         }
                     }
-                }
-                //BoardUpdated?.Invoke(k, j, );
+                }*/
+                BoardUpdated?.Invoke(k, j, );
             }
         }
         private void SwitchPlayer()

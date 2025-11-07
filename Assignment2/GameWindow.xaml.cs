@@ -1,6 +1,8 @@
 ﻿using Assignment2.Controller;
-using Assignment2.Models.GameBoard;
 using Assignment2.Models;
+using Assignment2.Models.GameBoard;
+using Assignment2.Models.PlayerT;
+using Assignment2.Models.PlayerT.FactoryT;
 using Assignment2.View;
 using System.Text;
 using System.Windows;
@@ -20,7 +22,7 @@ namespace Assignment2
     /// </summary>
     public partial class GameWindow : Window
     {
-        public GameManager _manager; 
+        public GameManager manager; 
         internal GameGrid board = new Assignment2.View.GameGrid();
         public GameWindow()
         { 
@@ -40,7 +42,7 @@ namespace Assignment2
 
             player1.Text = sDialog.nameOne;
             player2.Text = sDialog.nameTwo;
-            player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.Black)) ;//Change to get Score
+            player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.Black)) ;
             player2NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.White)) ;
 
             Grid.SetColumn(board, 4);
@@ -49,18 +51,29 @@ namespace Assignment2
         }
         public void setUpComplete(string name1, string name2, string type1, string type2)
         {
-
+            if (type1 == "Human Player")
+            {
+                Factory p1 = Player.create(name1, DiskColor.Black);
+            }
+            else
+            {
+                Factory p1 = Computer.create(name1, DiskColor.Black);
+            }
+            if (type2 == "Human Player")
+            {
+                Factory p2 = Player.create(name2, DiskColor.White);
+            }
+            else 
+            {
+                Factory p2 = Computer.create(name2, DiskColor.White);
+            }
+                manager.StartGame();
         }
 
         public void updateTokens(int black, int white)
         {
             player1NumOfTokens.Text = Convert.ToString(black) ;
             player2NumOfTokens.Text = Convert.ToString(white);
-        }
-        public void startGame()
-        {
-            GameManager gm = new GameManager();
-            gm.StartGame();
         }
         
         public void newGame()
