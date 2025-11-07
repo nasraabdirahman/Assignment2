@@ -32,7 +32,8 @@ namespace Assignment2.Controller
             DiskColor[,] currentboard = new DiskColor[8, 8];
             bool wasMoveMade = false;
             GameGrid gg = new GameGrid();
-            
+            Window1 w1 = new Window1();
+            w1.Show();
 
             for (int i = 0; i < 60; i++) // i is the current move
             {
@@ -79,8 +80,7 @@ namespace Assignment2.Controller
                         }
                     }
                 }
-                Window1 w1 = new Window1();
-                w1.Show();
+                
             }
         }
         private void SwitchPlayer()
