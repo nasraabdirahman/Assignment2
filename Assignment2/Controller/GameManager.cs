@@ -17,8 +17,8 @@ namespace Assignment2.Controller
         public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
         public Player CurrentPlayer { get; private set; }
-        public Player p1 { get; }
-        public Player p2 { get; }
+        public Player p1 { get; set; }
+        public Player p2 { get;set; }
         public object MoveSource { get; internal set; }
 
 
