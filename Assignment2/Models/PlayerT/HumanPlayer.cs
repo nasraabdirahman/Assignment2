@@ -1,6 +1,8 @@
 ﻿using Assignment2.Controller;
 using Assignment2.Models.GameBoard;
 using Assignment2.Models.PlayerT;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System;
 
 
@@ -20,6 +22,7 @@ namespace Assignment2.Models.PlayerT
 
         public override async Task<Move> RequestMove(List<Move> validMoves)
         {
+
             //create new list of moves 
             MoveSource = new TaskCompletionSource<Move>();
             //wait for the player to click before it can preform any task

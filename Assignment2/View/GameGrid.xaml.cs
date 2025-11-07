@@ -21,7 +21,7 @@ namespace Assignment2.View
     /// </summary>
     public partial class GameGrid : UserControl
     {
-        public GameManager manager{ get; set;}
+        public GameManager manager { get; set; }
 
         public GameGrid()
         {
@@ -69,7 +69,7 @@ namespace Assignment2.View
                     {
                         token.Fill = Brushes.Black;
                     }
-                    else 
+                    else
                     {
                         token.Fill = Brushes.White;
                     }

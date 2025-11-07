@@ -17,13 +17,16 @@ namespace Assignment2.Controller
         public int[] coordinates { get; set; } = new int[2];
         // Player with black disks starts first
         public Player CurrentPlayer { get; private set; }
-        public Player p1 { get; set; }
-        public Player p2 { get; set; }
+        public Player p1 { get; }
+        public Player p2 { get; }
+        public object MoveSource { get; internal set; }
+
 
         GameBoard board = new GameBoard();
         public GameManager()
         {
             DiskColor[,] currentboard = new DiskColor[8, 8];
+            CurrentPlayer = p1;
             
         }
         public async void StartGame()
@@ -76,9 +79,11 @@ namespace Assignment2.Controller
                         {
                             currentboard[k, j] = DiskColor.Empty;
                         }
+                        //BoardUpdated?.Invoke(k, j, (int)board.board[k, j];
                     }
+
                 }
-                
+  
             }
         }
         private void SwitchPlayer()

@@ -15,20 +15,13 @@ namespace Assignment2.Models.PlayerT
             this.diskColor = disk;
         }
 
-        public override async Task<Move> RequestMove(List<Move> validMoves)
+        public override Task<Move> RequestMove(List<Move> validMoves)
         {
-            await Task.Delay(1000); // 1 second delay to simulate thinking
-
-            // if the move isnt valid reeturn null;
-
-            if (validMoves == null || validMoves.Count == 0)
-            {
-                return null;
-            }
+            Task.Delay(1000); // 1 second delay to simulate thinking
             // chooses random move
             int index = Rand.Next(validMoves.Count);
             Move move = validMoves[index];
-            return move;
+            return Task.FromResult(validMoves[index]);
         }
     }
 
