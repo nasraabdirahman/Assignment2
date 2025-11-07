@@ -37,11 +37,11 @@ namespace Assignment2.Controller
                 List<Move> validMoves = board.GetValidMoves(CurrentPlayer.diskColor);
                 if (validMoves.Count != 0)
                 {
-                    CurrentPlayer.RequestMove(validMoves).Wait();
-                    //board.MakeMove(moveMade);
                     
+                    Move moveMade = CurrentPlayer.RequestMove(validMoves).Wait();
+                    board.MakeMove(moveMade);
+
                     SwitchPlayer();
-                    //tempBoard = board; 
                     wasMoveMade = true;
 
                 }
