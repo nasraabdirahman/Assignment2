@@ -24,6 +24,7 @@ namespace Assignment2
     {
         public GameManager manager; 
         internal GameGrid board = new Assignment2.View.GameGrid();
+
         public GameWindow()
         { 
             InitializeComponent();
@@ -36,38 +37,41 @@ namespace Assignment2
             SetupGameDialog sDialog= new SetupGameDialog();
             GameGrid gg = new GameGrid();
             GameBoard gb = new GameBoard();
-            sDialog.ShowDialog();
-
             sDialog.gameSetup += setUpComplete;
+            sDialog.ShowDialog();
 
             player1.Text = sDialog.nameOne;
             player2.Text = sDialog.nameTwo;
             player1NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.Black)) ;
             player2NumOfTokens.Text = Convert.ToString(gb.GetTeamScore(DiskColor.White)) ;
 
+            Window1 w1 = new Window1();
+            w1.Show();
+
             Grid.SetColumn(board, 4);
             Grid.SetRowSpan(board, 6);
+
             GameWindowGrid.Children.Add(board);
         }
         public void setUpComplete(string name1, string name2, string type1, string type2)
         {
             if (type1 == "Human Player")
             {
-                Factory p1 = Player.create(name1, DiskColor.Black);
+                HumanPlayer p1 = new HumanPlayer(name1, DiskColor.Black);
             }
             else
             {
-                Factory p1 = Computer.create(name1, DiskColor.Black);
+                ComputerPlayer p1 = new ComputerPlayer(name1, DiskColor.Black);
             }
             if (type2 == "Human Player")
             {
-                Factory p2 = Player.create(name2, DiskColor.White);
+                HumanPlayer p2 = new HumanPlayer(name1, DiskColor.Black);
             }
             else 
             {
-                Factory p2 = Computer.create(name2, DiskColor.White);
+                ComputerPlayer p2 = new ComputerPlayer(name1, DiskColor.Black);
             }
-                manager.StartGame();
+            manager.StartGame();
         }
 
         public void updateTokens(int black, int white)
