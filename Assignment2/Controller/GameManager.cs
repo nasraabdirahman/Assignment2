@@ -10,12 +10,15 @@ namespace Assignment2.Controller
 
     //Get Score, Matrix (to View)
     //playerOneType, playerTwoType, nameOne, nameTwo (to model-Player)
-    public partial class GameManager
+    public class GameManager
     {
         // Player with black disks starts first
+        public event Action<int[,]> BoardUpdated;
         public Player CurrentPlayer { get; private set; }
         public Factory Player1 { get; } // svart spelare
         public Factory Player2 { get; }
+
+        internal int[,] tempBoard;
 
         public GameManager()
         {
@@ -42,6 +45,8 @@ namespace Assignment2.Controller
                     //board.MakeMove(moveMade);
                     // int score = board.GetScore();
                     SwitchPlayer();
+                    tempBoard = board; 
+                    BoardUpdated?.Invoke(board());
                     wasMoveMade = true;
                 } else {
                     // no valid moves, skip turn

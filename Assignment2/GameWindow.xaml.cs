@@ -1,4 +1,5 @@
-﻿using Assignment2.View;
+﻿using Assignment2.Controller;
+using Assignment2.View;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,8 +18,9 @@ namespace Assignment2
     /// </summary>
     public partial class GameWindow : Window
     {
+        public GameManager _manager; 
         internal GameGrid board = new Assignment2.View.GameGrid();
-        public GameWindow()
+        public GameWindow(GameManager _manager)
         { 
             InitializeComponent();
             this.Width = SystemParameters.PrimaryScreenWidth;
